@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/images/feign%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B.png">
 <meta property="og:image" content="http://example.com/images/%E6%8A%BD%E5%87%BAfeign%E5%90%8E%E6%B6%88%E8%B4%B9%E8%80%85%E6%89%AB%E6%8F%8F%E4%B8%8D%E5%88%B0%E9%9C%80%E8%A6%81%E7%9A%84%E5%8C%85.png">
 <meta property="article:published_time" content="2023-08-06T00:49:12.000Z">
-<meta property="article:modified_time" content="2023-09-11T09:55:00.285Z">
+<meta property="article:modified_time" content="2023-09-18T08:30:03.762Z">
 <meta property="article:author" content="Unicornis">
 <meta property="article:tag" content="Spring cloud">
 <meta name="twitter:card" content="summary">
@@ -213,6 +213,7 @@
 <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>搭建测试项目各版本：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Maven：4.0.0</span><br><span class="line">jdk：1.8</span><br><span class="line">Spring boot：2.3.12.RELEASE（3.0以上不再支持jdk8）</span><br><span class="line">Springcloud：Hoxton.SR12（sr5以下Spring boot可用2.2.x; sr5及以上用Spring boot2.3.x）</span><br><span class="line">Mysql：8.0.33</span><br><span class="line">Mybatis：2.1.1</span><br><span class="line">Nacos：2.0.3（注意与1.0搭建集群时的配置区别）</span><br><span class="line">Nginx：1.24.0</span><br></pre></td></tr></table></figure>
 
+
 <h2 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h2><table>
 <thead>
 <tr>
@@ -230,6 +231,7 @@
 <li>注册：在启动文件中配置RestTemplate方法 使用@Bean注册为bean <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public RestTemplate restTemplate()&#123;</span><br><span class="line">    return new RestTemplate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>@Autowired依赖注入controller <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private RestTemplate restTemplate;</span><br></pre></td></tr></table></figure></li>
 <li>调用get&#x2F;post相关方法获取http返回值 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = &quot;http://userservice/user/&quot;+order.getUserId();</span><br><span class="line">User user = restTemplate.getForObject(url, User.class);   //将结果自动封装为user类</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <h3 id="Feign"><a href="#Feign" class="headerlink" title="Feign"></a>Feign</h3><h4 id="Feign远程调用"><a href="#Feign远程调用" class="headerlink" title="Feign远程调用"></a>Feign远程调用</h4>feign内部已经封装了ribbon（&#x3D;&#x3D;<strong>注</strong>：nacos负载均衡也是配置再ribbon下，所以ribbon和nacos的负载均衡规则不会冲突&#x3D;&#x3D;），所以会自动实现服务的负载均衡</li>
 </ol>
 </li>
@@ -626,18 +628,9 @@ Ribbon会根据规则选择处一个实例进行响应（默认是<code>轮询</
   
 <nav id="article-nav">
   
-    <a href="/2023/mysql%E8%AF%AD%E6%B3%95%E5%86%8D%E6%95%B4%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          mysql语法再整理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/mysql/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql学习笔记</div>
+    <a href="/2023/mysql%E8%AF%AD%E6%B3%95%E5%86%8D%E6%95%B4%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql语法再整理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -775,11 +768,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
