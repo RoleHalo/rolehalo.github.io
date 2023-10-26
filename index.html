@@ -157,6 +157,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-工作流学习笔记（activiti7）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/">Activiti7学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2023-09-24T09:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p><a href="#%E4%B8%80%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E4%BD%9C%E6%B5%81">一、什么是工作流</a></p>
+</li>
+<li><p><a href="#%E4%BA%8Cactiviti7%E6%A6%82%E8%BF%B0">二、Activiti7概述</a></p>
+<ul>
+<li><a href="#21-%E6%A6%82%E8%BF%B0">2.1 概述</a></li>
+<li><a href="#22-%E4%BD%BF%E7%94%A8">2.2 使用</a></li>
+<li><a href="#23-activiti7%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">2.3 Activiti7开发环境</a><ul>
+<li><a href="#231-%E4%B8%8B%E8%BD%BDbpmn%E8%AE%BE%E8%AE%A1%E5%99%A8">2.3.1 下载BPMN设计器</a></li>
+<li><a href="#232-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%94%AF%E6%8C%81">2.3.2 数据库支持</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E4%B8%89springbootmysql%E6%90%AD%E5%BB%BAactiviti7%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B">三、SpringBoot+MySQL搭建activiti7入门案例</a></p>
+<ul>
+<li><a href="#31-%E5%88%9B%E5%BB%BAmysql%E4%B8%ADactiviti%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93">3.1 创建mysql中activiti数据库的数据库</a><ul>
+<li><a href="#311-%E5%BC%95%E5%85%A5activiti%E4%BE%9D%E8%B5%96">3.1.1 引入activiti依赖</a></li>
+<li><a href="#312-test%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%B5%8B%E8%AF%95%E7%B1%BBactiviti7test01">3.1.2 test下添加测试类<code>Activiti7Test01</code></a></li>
+<li><a href="#313-%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF">3.1.3 配置数据库信息</a></li>
+<li><a href="#314-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E8%A1%A8">3.1.4 数据库自动生成表</a></li>
+</ul>
+</li>
+<li><a href="#32-%E5%88%9B%E5%BB%BAbpmn%E6%B5%81%E7%A8%8B%E5%9B%BE">3.2 创建BPMN流程图</a></li>
+<li><a href="#33-%E6%B5%81%E7%A8%8B%E6%93%8D%E4%BD%9C">3.3 流程操作</a><ul>
+<li><a href="#331-%E6%B5%81%E7%A8%8B%E9%83%A8%E7%BD%B2">3.3.1 流程部署</a></li>
+<li><a href="#332-%E5%8F%91%E8%B5%B7%E6%B5%81%E7%A8%8B">3.3.2 发起流程</a></li>
+<li><a href="#333-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B">3.3.3 查询流程</a></li>
+<li><a href="#334-%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B">3.3.4 审批流程</a></li>
+<li><a href="#335-%E6%B6%89%E5%8F%8A%E7%9A%84%E8%A1%A8">3.3.5 涉及的表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E5%9B%9B%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D">四、任务分配</a></p>
+<ul>
+<li><a href="#41-%E5%9B%BA%E5%AE%9A%E5%88%86%E9%85%8D">4.1 固定分配</a></li>
+<li><a href="#42-%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2 表达式</a><ul>
+<li><a href="#421-%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2.1 值表达式</a></li>
+<li><a href="#422-%E6%96%B9%E6%B3%95%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2.2 方法表达式</a></li>
+</ul>
+</li>
+<li><a href="#43-%E7%9B%91%E5%90%AC%E5%99%A8%E9%85%8D%E7%BD%AE">4.3 监听器配置</a></li>
+</ul>
+</li>
+<li><p><a href="#%E4%BA%94%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">五、流程变量</a></p>
+<ul>
+<li><a href="#51-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1 运行时流程变量</a><ul>
+<li><a href="#511-%E5%85%A8%E5%B1%80%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1.1 全局流程变量</a></li>
+<li><a href="#512-%E5%B1%80%E9%83%A8%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1.2 局部流程变量</a></li>
+</ul>
+</li>
+<li><a href="#52-%E5%8E%86%E5%8F%B2%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.2 历史流程变量</a></li>
+</ul>
+</li>
+<li><p><a href="#%E5%85%AD%E8%BA%AB%E4%BB%BD%E6%9C%8D%E5%8A%A1">六、身份服务</a></p>
+<ul>
+<li><a href="#61-%E5%AE%A1%E6%89%B9%E4%BA%BA">6.1 审批人</a></li>
+<li><a href="#62-%E5%80%99%E9%80%89%E4%BA%BA">6.2 候选人</a></li>
+<li><a href="#63-%E5%80%99%E9%80%89%E4%BA%BA%E7%BB%84">6.3 候选人组</a></li>
+</ul>
+</li>
+<li><p><a href="#%E4%B8%83%E7%BD%91%E5%85%B3">七、网关</a></p>
+<ul>
+<li><a href="#71-%E6%8E%92%E4%BB%96%E7%BD%91%E5%85%B3">7.1 排他网关</a></li>
+<li><a href="#72-%E5%B9%B6%E8%A1%8C%E7%BD%91%E5%85%B3">7.2 并行网关</a></li>
+<li><a href="#73-%E5%8C%85%E5%AE%B9%E7%BD%91%E5%85%B3">7.3 包容网关</a></li>
+<li><a href="#74-%E4%BA%8B%E4%BB%B6%E7%BD%91%E5%85%B3">7.4 事件网关</a></li>
+</ul>
+</li>
+<li><p><a href="#%E5%85%AB-%E4%BA%8B%E4%BB%B6">八、 事件</a></p>
+<ul>
+<li><a href="#81-%E5%AE%9A%E6%97%B6%E5%99%A8">8.1 定时器</a><ul>
+<li><a href="#811-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6">8.1.1 启动事件</a></li>
+<li><a href="#812-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6">8.1.2 中间事件</a></li>
+<li><a href="#813-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6">8.1.3 边界事件</a></li>
+</ul>
+</li>
+<li><a href="#82-%E6%B6%88%E6%81%AF%E4%BA%8B%E4%BB%B6">8.2 消息事件</a><ul>
+<li><a href="#821-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6">8.2.1 启动事件</a></li>
+<li><a href="#822-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6">8.2.2 中间事件</a></li>
+<li><a href="#823-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6">8.2.3 边界事件</a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Activiti7</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -833,15 +988,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Activiti7</a>
               </li>
              
               <li class="article-tag-list-item">
