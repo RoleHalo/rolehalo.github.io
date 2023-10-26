@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>java基础学习 | Unicornis</title>
+  <title>Activiti7学习笔记 | Unicornis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录 目录 第一章 java语言概述 文档注释 API文档的说明 Java的语言特点 JVM   第二章 变量与运算符 关键字 标识符 变量 基本数据类型变量间的转化 String类型 运算符   第三章 流量控制第一章 java语言概述文档注释   例如： 1234567&#x2F;**	这是文本注释(java特有的)	可以被 javadoc 所解析生成一套以网页文件形式体现的该程序的说明文档	@auth">
+  <meta name="description" content="一、什么是工作流  二、Activiti7概述  2.1 概述 2.2 使用 2.3 Activiti7开发环境 2.3.1 下载BPMN设计器 2.3.2 数据库支持     三、SpringBoot+MySQL搭建activiti7入门案例  3.1 创建mysql中activiti数据库的数据库 3.1.1 引入activiti依赖 3.1.2 test下添加测试类Activiti7Tes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java基础学习">
-<meta property="og:url" content="http://example.com/2019/Java%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9F%BA%E7%A1%80%E8%A1%A5%E7%BC%BA%E7%89%88%EF%BC%89/index.html">
+<meta property="og:title" content="Activiti7学习笔记">
+<meta property="og:url" content="http://example.com/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/index.html">
 <meta property="og:site_name" content="Unicornis">
-<meta property="og:description" content="目录 目录 第一章 java语言概述 文档注释 API文档的说明 Java的语言特点 JVM   第二章 变量与运算符 关键字 标识符 变量 基本数据类型变量间的转化 String类型 运算符   第三章 流量控制第一章 java语言概述文档注释   例如： 1234567&#x2F;**	这是文本注释(java特有的)	可以被 javadoc 所解析生成一套以网页文件形式体现的该程序的说明文档	@auth">
+<meta property="og:description" content="一、什么是工作流  二、Activiti7概述  2.1 概述 2.2 使用 2.3 Activiti7开发环境 2.3.1 下载BPMN设计器 2.3.2 数据库支持     三、SpringBoot+MySQL搭建activiti7入门案例  3.1 创建mysql中activiti数据库的数据库 3.1.1 引入activiti依赖 3.1.2 test下添加测试类Activiti7Tes">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-08-06T00:18:12.000Z">
-<meta property="article:modified_time" content="2023-09-18T08:32:41.576Z">
+<meta property="og:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/IDEA%E4%B8%AD%E6%9F%A5%E7%9C%8BBPMN.png">
+<meta property="og:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/%E6%B5%81%E7%A8%8B%E5%8F%91%E8%B5%B7act_ru_task%E8%A1%A8.png">
+<meta property="article:published_time" content="2023-09-24T09:10:15.000Z">
+<meta property="article:modified_time" content="2023-10-26T08:05:58.452Z">
 <meta property="article:author" content="Unicornis">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="Activiti7">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/IDEA%E4%B8%AD%E6%9F%A5%E7%9C%8BBPMN.png">
   
     <link rel="alternative" href="/atom.xml" title="Unicornis" type="application/atom+xml">
   
@@ -157,166 +160,423 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java学习（基础补缺版）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-工作流学习笔记（activiti7）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java基础学习
+      Activiti7学习笔记
     </h1>
   
 
         
-        <a href="/2019/Java%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9F%BA%E7%A1%80%E8%A1%A5%E7%BC%BA%E7%89%88%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2019-08-06T00:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+        <a href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2023-09-24T09:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">第一章 java语言概述</a><ul>
-<li><a href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A">文档注释</a></li>
-<li><a href="#api%E6%96%87%E6%A1%A3%E7%9A%84%E8%AF%B4%E6%98%8E">API文档的说明</a></li>
-<li><a href="#java%E7%9A%84%E8%AF%AD%E8%A8%80%E7%89%B9%E7%82%B9">Java的语言特点</a></li>
-<li><a href="#jvm">JVM</a></li>
+        <ul>
+<li><p><a href="#%E4%B8%80%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E4%BD%9C%E6%B5%81">一、什么是工作流</a></p>
+</li>
+<li><p><a href="#%E4%BA%8Cactiviti7%E6%A6%82%E8%BF%B0">二、Activiti7概述</a></p>
+<ul>
+<li><a href="#21-%E6%A6%82%E8%BF%B0">2.1 概述</a></li>
+<li><a href="#22-%E4%BD%BF%E7%94%A8">2.2 使用</a></li>
+<li><a href="#23-activiti7%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">2.3 Activiti7开发环境</a><ul>
+<li><a href="#231-%E4%B8%8B%E8%BD%BDbpmn%E8%AE%BE%E8%AE%A1%E5%99%A8">2.3.1 下载BPMN设计器</a></li>
+<li><a href="#232-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%94%AF%E6%8C%81">2.3.2 数据库支持</a></li>
 </ul>
 </li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%8F%98%E9%87%8F%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6">第二章 变量与运算符</a><ul>
-<li><a href="#%E5%85%B3%E9%94%AE%E5%AD%97">关键字</a></li>
-<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></li>
-<li><a href="#%E5%8F%98%E9%87%8F">变量</a></li>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E9%97%B4%E7%9A%84%E8%BD%AC%E5%8C%96">基本数据类型变量间的转化</a></li>
-<li><a href="#string%E7%B1%BB%E5%9E%8B">String类型</a></li>
-<li><a href="#%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a></li>
 </ul>
 </li>
-<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6">第三章 流量控制</a><h1 id="第一章-java语言概述"><a href="#第一章-java语言概述" class="headerlink" title="第一章 java语言概述"></a>第一章 java语言概述</h1><h4 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h4></li>
+<li><p><a href="#%E4%B8%89springbootmysql%E6%90%AD%E5%BB%BAactiviti7%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B">三、SpringBoot+MySQL搭建activiti7入门案例</a></p>
+<ul>
+<li><a href="#31-%E5%88%9B%E5%BB%BAmysql%E4%B8%ADactiviti%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93">3.1 创建mysql中activiti数据库的数据库</a><ul>
+<li><a href="#311-%E5%BC%95%E5%85%A5activiti%E4%BE%9D%E8%B5%96">3.1.1 引入activiti依赖</a></li>
+<li><a href="#312-test%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%B5%8B%E8%AF%95%E7%B1%BBactiviti7test01">3.1.2 test下添加测试类<code>Activiti7Test01</code></a></li>
+<li><a href="#313-%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF">3.1.3 配置数据库信息</a></li>
+<li><a href="#314-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E8%A1%A8">3.1.4 数据库自动生成表</a></li>
 </ul>
-<ol>
-<li>例如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">	这是文本注释(java特有的)</span><br><span class="line">	可以被 javadoc 所解析生成一套以网页文件形式体现的该程序的说明文档</span><br><span class="line">	@author loumeng</span><br><span class="line">	@version 1.0</span><br><span class="line">*/</span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
-<li>使用命令：<code> javadoc -d mkdir -author -version 文件名.java</code>  创建文件夹为mkdir的网页文件夹 <span id="more"></span>   
-<h4 id="API文档的说明"><a href="#API文档的说明" class="headerlink" title="API文档的说明"></a>API文档的说明</h4></li>
-<li>API（Application programming interface，应用程序编程接口）</li>
-</ol>
-<h4 id="Java的语言特点"><a href="#Java的语言特点" class="headerlink" title="Java的语言特点"></a>Java的语言特点</h4><ol>
-<li>跨平台</li>
-<li>面向对象</li>
-<li>健壮性</li>
-<li>安全性高</li>
-<li>简单性</li>
-<li>高性能</li>
-</ol>
-<h4 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h4><ol>
-<li>实现java的<code>跨平台性</code></li>
-<li>自动内存管理：<code>GC自动回收</code></li>
-<li>内存溢出 内存泄露</li>
-</ol>
-<h1 id="第二章-变量与运算符"><a href="#第二章-变量与运算符" class="headerlink" title="第二章 变量与运算符"></a>第二章 变量与运算符</h1><h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><ol>
-<li>全是小写</li>
-<li>goto contes 保留字</li>
-</ol>
-<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><ol>
-<li>可以自定义的地方、</li>
-<li>类名，包名。。。</li>
-<li>命名规则 （否则编译会报错） &#x3D;&#x3D;”自洽”&#x3D;&#x3D;<ol>
-<li>26字母大小写开头，0-9，_ 或$ 组成</li>
-<li>数字不可以开头</li>
-<li>不可以使用但可以包含关键字或者保留字</li>
-<li><code>java严格区分大小写</code> 长度无限制</li>
-<li>标识符不能包含空格</li>
-</ol>
 </li>
-<li>命名规范<ol>
-<li>包名：多单词组成时字母都小写</li>
-<li>类名、接口名：多单词组成时，所有单词的首字母大写</li>
-<li>变量名、方法名：多单词组成时，第一个的单词首字母小写，第二个及以后的每个单词首字母大写</li>
-<li>常量名：所有字母都大写，多单词时每个单词用下划线连接</li>
-</ol>
+<li><a href="#32-%E5%88%9B%E5%BB%BAbpmn%E6%B5%81%E7%A8%8B%E5%9B%BE">3.2 创建BPMN流程图</a></li>
+<li><a href="#33-%E6%B5%81%E7%A8%8B%E6%93%8D%E4%BD%9C">3.3 流程操作</a><ul>
+<li><a href="#331-%E6%B5%81%E7%A8%8B%E9%83%A8%E7%BD%B2">3.3.1 流程部署</a></li>
+<li><a href="#332-%E5%8F%91%E8%B5%B7%E6%B5%81%E7%A8%8B">3.3.2 发起流程</a></li>
+<li><a href="#333-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B">3.3.3 查询流程</a></li>
+<li><a href="#334-%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B">3.3.4 审批流程</a></li>
+<li><a href="#335-%E6%B6%89%E5%8F%8A%E7%9A%84%E8%A1%A8">3.3.5 涉及的表</a></li>
+</ul>
 </li>
-</ol>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><ol>
-<li>整型变量<ol>
-<li>byte   1字节 &#x3D; 8 bit</li>
-<li>short  2字节</li>
-<li>int(&#x3D;&#x3D;常量默认为int&#x3D;&#x3D;)    4字节</li>
-<li>long   8字节 。赋值最后用小写或者大写的<code>L</code>结尾。例如：<code>long l1 = 12138L</code> 或者 <code>long l1 = 12138l</code></li>
-</ol>
+</ul>
 </li>
-<li>浮点类型变量<ol>
-<li>float 4字节  赋值最后用小写或者大写的<code>F</code>结尾。例如：<code>float f1 = 12138F</code> 或者 <code>float f1 = 12138f</code></li>
-<li>double 8字节</li>
-<li>通过测试 浮点型数据精度不高 如果需要极高的精度 使用<code>BigDecimal类</code>替换浮点型变量</li>
-</ol>
+<li><p><a href="#%E5%9B%9B%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D">四、任务分配</a></p>
+<ul>
+<li><a href="#41-%E5%9B%BA%E5%AE%9A%E5%88%86%E9%85%8D">4.1 固定分配</a></li>
+<li><a href="#42-%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2 表达式</a><ul>
+<li><a href="#421-%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2.1 值表达式</a></li>
+<li><a href="#422-%E6%96%B9%E6%B3%95%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2.2 方法表达式</a></li>
+</ul>
 </li>
-<li>bool类型</li>
-<li>字符类型 char</li>
+<li><a href="#43-%E7%9B%91%E5%90%AC%E5%99%A8%E9%85%8D%E7%BD%AE">4.3 监听器配置</a></li>
+</ul>
+</li>
+<li><p><a href="#%E4%BA%94%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">五、流程变量</a></p>
+<ul>
+<li><a href="#51-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1 运行时流程变量</a><ul>
+<li><a href="#511-%E5%85%A8%E5%B1%80%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1.1 全局流程变量</a></li>
+<li><a href="#512-%E5%B1%80%E9%83%A8%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1.2 局部流程变量</a></li>
+</ul>
+</li>
+<li><a href="#52-%E5%8E%86%E5%8F%B2%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.2 历史流程变量</a></li>
+</ul>
+</li>
+<li><p><a href="#%E5%85%AD%E8%BA%AB%E4%BB%BD%E6%9C%8D%E5%8A%A1">六、身份服务</a></p>
+<ul>
+<li><a href="#61-%E5%AE%A1%E6%89%B9%E4%BA%BA">6.1 审批人</a></li>
+<li><a href="#62-%E5%80%99%E9%80%89%E4%BA%BA">6.2 候选人</a></li>
+<li><a href="#63-%E5%80%99%E9%80%89%E4%BA%BA%E7%BB%84">6.3 候选人组</a></li>
+</ul>
+</li>
+<li><p><a href="#%E4%B8%83%E7%BD%91%E5%85%B3">七、网关</a></p>
+<ul>
+<li><a href="#71-%E6%8E%92%E4%BB%96%E7%BD%91%E5%85%B3">7.1 排他网关</a></li>
+<li><a href="#72-%E5%B9%B6%E8%A1%8C%E7%BD%91%E5%85%B3">7.2 并行网关</a></li>
+<li><a href="#73-%E5%8C%85%E5%AE%B9%E7%BD%91%E5%85%B3">7.3 包容网关</a></li>
+<li><a href="#74-%E4%BA%8B%E4%BB%B6%E7%BD%91%E5%85%B3">7.4 事件网关</a></li>
+</ul>
+</li>
+<li><p><a href="#%E5%85%AB-%E4%BA%8B%E4%BB%B6">八、 事件</a></p>
+<ul>
+<li><a href="#81-%E5%AE%9A%E6%97%B6%E5%99%A8">8.1 定时器</a><ul>
+<li><a href="#811-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6">8.1.1 启动事件</a></li>
+<li><a href="#812-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6">8.1.2 中间事件</a></li>
+<li><a href="#813-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6">8.1.3 边界事件</a></li>
+</ul>
+</li>
+<li><a href="#82-%E6%B6%88%E6%81%AF%E4%BA%8B%E4%BB%B6">8.2 消息事件</a><ul>
+<li><a href="#821-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6">8.2.1 启动事件</a></li>
+<li><a href="#822-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6">8.2.2 中间事件</a></li>
+<li><a href="#823-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6">8.2.3 边界事件</a><span id="more"></span>
+<h1 id="一、什么是工作流"><a href="#一、什么是工作流" class="headerlink" title="一、什么是工作流"></a>一、什么是工作流</h1></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多个参与者之间按照某种预定义的规则自动进行传递文档、信息或任务的过程，进而实现某种预期的业务目标</p>
+</li>
+<li><p>如：订单、客户订单处理、供应链管理、合同审核、请假申请、出差申请、加班申请、财务审批等等</p>
+</li>
+</ul>
+<h1 id="二、Activiti7概述"><a href="#二、Activiti7概述" class="headerlink" title="二、Activiti7概述"></a>二、Activiti7概述</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><ul>
+<li>使用建模语言BNPMN2.0 进行定义</li>
+<li>画出业务流程图会转成xml文件，然后可以读取文件</li>
+</ul>
+<h2 id="2-2-使用"><a href="#2-2-使用" class="headerlink" title="2.2 使用"></a>2.2 使用</h2><ol>
+<li>部署：activiti7是一个工作流引擎（jar包API），业务系统访问（操作）activiti的接口操作相关数据</li>
+<li>定义：使用activit7建模工具定义业务流程，生成.bpmn文件即通过xml定义业务流程。</li>
+<li>流程部署：存储.bpmn文件到数据库</li>
+<li>启动实例：启动一个流程实例表示开始一次业务流程的运行</li>
+<li>用户查询待办任务（task）：通过activiti查询 不需要sql语句</li>
+<li>用户办理任务：用户查询待办任务，进行办理。如果流程还未结束需要往下走，如请假审批还需要领导审批，acitivi会自动完成。</li>
+<li>流程结束：没有下一个任务点了就代表此次流程实例结束</li>
 </ol>
-<h4 id="基本数据类型变量间的转化"><a href="#基本数据类型变量间的转化" class="headerlink" title="基本数据类型变量间的转化"></a>基本数据类型变量间的转化</h4><p>注：不包含boolean类型</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运算规则</span><br><span class="line">    1. 自动类型提高</span><br><span class="line">    2. 强制类型转换</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-Activiti7开发环境"><a href="#2-3-Activiti7开发环境" class="headerlink" title="2.3 Activiti7开发环境"></a>2.3 Activiti7开发环境</h2><ol>
+<li>jdk1.8+</li>
+<li>mysql5.1.21+</li>
+<li>Tomcat8.5+</li>
+<li>IDEA（acticiti的流程定义工具插件可以安装再IDEA下，也可以再eclipse下）</li>
+<li>支持spring5</li>
+<li>BPMN开源设计器（<a target="_blank" rel="noopener" href="https://gitee.com/MiyueSC/bpmn-process-designer%EF%BC%89">https://gitee.com/MiyueSC/bpmn-process-designer）</a><ol>
+<li>因为该设计器是用Node.js做的，所以需要先把Node.js环境安装好。</li>
+<li>然后把项目解压缩，并且在命令行进入该项目文件夹，执行初始化命令<code>npm install</code>。</li>
+<li>然后执行下面的命令，才能让这个BPMN项目兼容高版本的Node.js<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Windows系统执行这个命令</span><br><span class="line">set NODE_OPTIONS=--openssl-legacy-provider</span><br><span class="line"></span><br><span class="line"># Linux和MacOS系统执行这个命令</span><br><span class="line">export NODE_OPTIONS=--openssl-legacy-provider</span><br></pre></td></tr></table></figure>
 
+<pre><code> 4. 启动设计器：在命令行中执行`npm run demo`命令启动BPMN项目，然后打开浏览器访问本地的8100端口就能看到该设计器了。
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-3-1-下载BPMN设计器"><a href="#2-3-1-下载BPMN设计器" class="headerlink" title="2.3.1 下载BPMN设计器"></a>2.3.1 下载BPMN设计器</h3><ul>
+<li>git下载地址：<a target="_blank" rel="noopener" href="https://github.com/miyuesc/bpmn-process-designer">https://github.com/miyuesc/bpmn-process-designer</a></li>
+<li>git在线地址：<a target="_blank" rel="noopener" href="https://miyuesc.github.io/process-designer-v2/">https://miyuesc.github.io/process-designer-v2/</a></li>
+<li>本地使用方法：<ol>
+<li>因为该BPMN设计器是用Node.js做的，所以需要先把Node.js环境安装好</li>
+<li>把项目解压缩，并且在命令行进入该项目文件夹，执行初始化命令:<code>cnpm install</code></li>
+<li>在命令行中执行<code>npm run demo</code>命令启动BPMN项目</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-3-2-数据库支持"><a href="#2-3-2-数据库支持" class="headerlink" title="2.3.2 数据库支持"></a>2.3.2 数据库支持</h3><ol>
+<li>activit的运行需要数据库的支持，使用25张表，把流程定义节点内容读取到数据库表中，供后续使用</li>
+<li>支持多种数据库及版本<ol>
+<li>h2 ：1.3.168+</li>
+<li>mysql：5.1.21+</li>
+<li>oracle：11.2.0.1.0+</li>
+<li>postgres：8.1+</li>
+<li>db2：DB2 10.1 using db2jdbc4+</li>
+<li>mssql：2008 using sqljdbc4+</li>
+</ol>
+</li>
+</ol>
+<h1 id="三、SpringBoot-MySQL搭建activiti7入门案例"><a href="#三、SpringBoot-MySQL搭建activiti7入门案例" class="headerlink" title="三、SpringBoot+MySQL搭建activiti7入门案例"></a>三、SpringBoot+MySQL搭建activiti7入门案例</h1><h2 id="3-1-创建mysql中activiti数据库的数据库"><a href="#3-1-创建mysql中activiti数据库的数据库" class="headerlink" title="3.1 创建mysql中activiti数据库的数据库"></a>3.1 创建mysql中activiti数据库的数据库</h2><p>如：创建activiti<code>create database activiti default character set utf8;</code></p>
+<h3 id="3-1-1-引入activiti依赖"><a href="#3-1-1-引入activiti依赖" class="headerlink" title="3.1.1 引入activiti依赖"></a>3.1.1 引入activiti依赖</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--activiti依赖--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;activiti-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">7.0</span><span class="number">.0</span>.GA&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--mysql依赖--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">8.0</span><span class="number">.33</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/com.alibaba/druid --&gt;</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;druid&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">1.1</span><span class="number">.10</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-2-test下添加测试类Activiti7Test01"><a href="#3-1-2-test下添加测试类Activiti7Test01" class="headerlink" title="3.1.2 test下添加测试类Activiti7Test01"></a>3.1.2 test下添加测试类<code>Activiti7Test01</code></h3><h3 id="3-1-3-配置数据库信息"><a href="#3-1-3-配置数据库信息" class="headerlink" title="3.1.3 配置数据库信息"></a>3.1.3 配置数据库信息</h3><ol start="0">
+<li><p>注意配置<code>databaseSchemaUpdate</code>属性</p>
+</li>
+<li><p>方法一：配置文件形式（默认形式）</p>
 <ol>
-<li>自动类型提升<ol>
-<li>byte &lt; short &lt; int &lt; long &lt; float &lt; double</li>
-<li>&#x3D;&#x3D;调用方法时候传参是自动类型转换&#x3D;&#x3D;，而不是强制类型转换</li>
-<li>规则：当容量小的变量与容量大的变量做运算时，结果自动转换为容量大的变量数据类型（&#x3D;&#x3D;大转小编译不通过&#x3D;&#x3D;）</li>
+<li><p>通过<code>getDefaultProcessEngine()</code>方法获取流程引擎对象 会加载<code>resources</code> 目录下的 <code>activiti.cfg.xml</code></p>
+</li>
+<li><p>activiti.cfg.xml内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="line">       xmlns:xsi=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="line">       xmlns:context=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span><br><span class="line">       xmlns:tx=<span class="string">&quot;http://www.springframework.org/schema/tx&quot;</span></span><br><span class="line">       xsi:schemaLocation=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string">						http://www.springframework.org/schema/contex http://www.springframework.org/schema/context/spring-context.xsd</span></span><br><span class="line"><span class="string">						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd&quot;</span>&gt;</span><br><span class="line">    &lt;!--activiti单独运行的ProcessEngine配置对象(processEngineConfiguration),使用单独启动方式</span><br><span class="line">            默认情况下：bean的id=processEngineConfiguration</span><br><span class="line">        --&gt;</span><br><span class="line">    &lt;bean id=<span class="string">&quot;processEngineConfiguration&quot;</span> class=<span class="string">&quot;org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration&quot;</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;jdbcDriver&quot;</span> value=<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;jdbcUrl&quot;</span> value=<span class="string">&quot;jdbc:mysql://127.0.0.1:3308/activiti?nullCatalogMeansCurrent=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=false&amp;amp;serverTimezone=GMT%2B8&quot;</span>&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;jdbcUsername&quot;</span> value=<span class="string">&quot;root&quot;</span>&gt;&lt;/property&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;jdbcPassword&quot;</span> value=<span class="string">&quot;mysql1225&quot;</span>&gt;&lt;/property&gt;</span><br><span class="line">    &lt;!--数据库生成策略--&gt;</span><br><span class="line">    &lt;!--activiti在生成表的时候,<span class="literal">true</span> 表示数据库中如果已经存在,那么直接使用,如果不存在,则直接创建--&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;databaseSchemaUpdate&quot;</span> value=<span class="string">&quot;true&quot;</span>&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--    &amp;lt;!&amp;ndash;数据库连接池的构造注入&amp;ndash;&amp;gt;--&gt;</span><br><span class="line">&lt;!--    &lt;bean id=<span class="string">&quot;dataSource&quot;</span> class=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;driverClassName&quot;</span> value=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;url&quot;</span> value=<span class="string">&quot;jdbc:mysql://127.0.0.1:3308/activiti?useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=false&amp;amp;serverTimezone=GMT%2B8&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;username&quot;</span> value=<span class="string">&quot;root&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;password&quot;</span> value=<span class="string">&quot;mysql1225&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;maxActive&quot;</span> value=<span class="string">&quot;30&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;minIdle&quot;</span> value=<span class="string">&quot;5&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--    &lt;/bean&gt;--&gt;</span><br><span class="line">&lt;!--    &lt;bean id=<span class="string">&quot;processEngineConfiguration&quot;</span> class=<span class="string">&quot;org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration&quot;</span>&gt;--&gt;</span><br><span class="line">&lt;!--        &amp;lt;!&amp;ndash;代表数据源&amp;ndash;&amp;gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;dataSource&quot;</span> ref=<span class="string">&quot;dataSource&quot;</span>&gt;&lt;/property&gt;--&gt;</span><br><span class="line">&lt;!--        &amp;lt;!&amp;ndash;代表是否生成表结构&amp;ndash;&amp;gt;--&gt;</span><br><span class="line">&lt;!--        &lt;property name=<span class="string">&quot;databaseSchemaUpdate&quot;</span> value=<span class="string">&quot;true&quot;</span>/&gt;--&gt;</span><br><span class="line">&lt;!--    &lt;/bean&gt;--&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 获取processsEngine对象的第一种方式</span></span><br><span class="line"><span class="comment">    * 默认的获取方式</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test01</span><span class="params">()</span>&#123;</span><br><span class="line">       <span class="comment">//通过getDefaultProcessEngine()方法获取流程引擎对象 会加载resources 目录下的 activiti.cfg.xml</span></span><br><span class="line">       <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">       System.out.println(processEngine);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-<li>强制类型提升<ol>
-<li>例如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">long l1  = 123L;</span><br><span class="line">short s1 = (short)l1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">是可以通过编译的</span><br></pre></td></tr></table></figure></li>
-<li>规则：当容量小(或者大)的变量与容量大(或者小)的变量做运算时，结果强制转换为容量大(或者小)的变量数据类型（&#x3D;&#x3D;主要用于大转小&#x3D;&#x3D;，但精度可能会丢失）</li>
+<li><p>方法二: java代码形式</p>
+<ol>
+<li><p>基于java代码获取processEngine对象</p>
+</li>
+<li><p>直接编写测试方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 获取processsEngine对象的第二种方式</span></span><br><span class="line"><span class="comment">   * 基于java代码获取processEngine对象</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test02</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration()</span><br><span class="line">              .setJdbcDriver(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>)</span><br><span class="line">            <span class="comment">//  .setJdbcUrl(&quot;jdbc:mysql://localhost:3308/activiti?serverTimezone=UTC&amp;characterEncoding=utf8&amp;useUnicode=true&amp;useSSL=false&quot;)</span></span><br><span class="line">              .setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3308/activiti?nullCatalogMeansCurrent=true&amp;serverTimezone=UTC&amp;characterEncoding=utf8&amp;useUnicode=true&amp;useSSL=false&quot;</span>)</span><br><span class="line">              .setJdbcUsername(<span class="string">&quot;root&quot;</span>)</span><br><span class="line">              .setJdbcPassword(<span class="string">&quot;mysql1225&quot;</span>)</span><br><span class="line">              .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)<span class="comment">//activiti在生成表的时候,true 表示数据库中如果已经存在,那么直接使用,如果不存在,则直接创建</span></span><br><span class="line">              .buildProcessEngine();</span><br><span class="line">      System.out.println(<span class="string">&quot;processEngine = &quot;</span>+processEngine);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 </ol>
-<h4 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h4><ol>
-<li>属于引用类型</li>
-<li>可以使用双引号的方式进行复制</li>
-<li>可以包含0或者1个或者多个字符</li>
-<li>包括Boolean在内的8种都可以转</li>
-<li>可以直接通过”+”进行运算</li>
-<li>运算结果肯定是 String类型</li>
-<li>无法转换为基本数据类型    只能转换为其他引用数据类型</li>
-</ol>
-<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><ol>
-<li>按功能<ol>
-<li>算数运算符(7个)： +、-、*、&#x2F;、%、++（前&#x2F;后）、–（前&#x2F;后）</li>
-<li>赋值运算符(12个)： &#x3D;、+&#x3D;、-&#x3D;、&#x2F;&#x3D;、%&#x3D;、&gt;&gt;&#x3D;、&lt;&lt;&#x3D;、&gt;&gt;&gt;&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;等</li>
-<li>比较（关系）运算符(6个)： &gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;、&#x3D;&#x3D;、||</li>
-<li>逻辑运算符(6个)： &amp;、|、^、！、&amp;&amp;、||<ol>
-<li>&amp;和| 两个条件无论第一个条件是否通过都需要运行第二个条件</li>
-<li>&amp;&amp;和|| 两个条件第一个条件已经不符合则直接跳过，不再对第二个条件进行运行判断</li>
-</ol>
+<h3 id="3-1-4-数据库自动生成表"><a href="#3-1-4-数据库自动生成表" class="headerlink" title="3.1.4 数据库自动生成表"></a>3.1.4 数据库自动生成表</h3><p>运行test方法后，即第一次获取流程引擎时，数据库自动生成act开头的表则创建成功。第二部分是说明用途的两字节标识符</p>
+<p>ACT_RE_*：<code>RE</code>代表<code>repository</code>。带有“静态”的意思。例如：流程定义和流程资源（图片、规则等）</p>
+<p>ACT_RU_*：<code>RU</code>代表<code>runtime</code>。保存“运行时信息”。例如：流程实例、用户任务、变量、作业等。Activiti只在流程实例运行中保存运行时数据，并在流程实例结束时删除记录，进而可以保证<code>小而快</code></p>
+<p>ACT_ID_*：<code>ID</code>代表<code>identity</code>。保存”身份信息“。例如：用户、组等</p>
+<p>ACT_HI_*：<code>HI</code>代表<code>history</code>。保存“历史数据”。例如：已完成的流程实例、变量、任务等</p>
+<p>ACT_GE_*：通用数据，用于不同场景下</p>
+<h2 id="3-2-创建BPMN流程图"><a href="#3-2-创建BPMN流程图" class="headerlink" title="3.2 创建BPMN流程图"></a>3.2 创建BPMN流程图</h2><ol>
+<li><p>设计器根据需求画出流程图，导出xml文件放在<code>rescoures\bpmn</code>目录下，并重命名<code>*.bpmn20.xml</code>形式</p>
 </li>
-<li>位运算符(7个)：&amp;、|、^、~、&lt;&lt;、&gt;&gt;、&gt;&gt;&gt;</li>
-<li>条件运算符(1个)：&#x3D;&#x3D;(条件表达式)？结果1：结果2&#x3D;&#x3D;<ul>
-<li>如果表达式结果为true，则执行结果表达式1，否则执行结果表达式2</li>
-<li>凡是可以使用条件运算符的位置，都可以使用if-else，反之则不然</li>
-<li>&#x3D;&#x3D;建议：二者都能使用的时候使用条件运算符，执行效率稍快&#x3D;&#x3D;</li>
+<li><p>xml文件右键<code>View BPMN(Activiti) Diagram</code>后，点击相关元素设置<code>Assignee</code>（任务处理人）等属性</p>
+<p><img src="https://gitee.com/RoleHalo/blog-image/raw/master/image/IDEA%E4%B8%AD%E6%9F%A5%E7%9C%8BBPMN.png" alt="IDEA中查看BPMN"></p>
+</li>
+</ol>
+<h2 id="3-3-流程操作"><a href="#3-3-流程操作" class="headerlink" title="3.3 流程操作"></a>3.3 流程操作</h2><ol start="0">
+<li><p>数据库比较关键的两张表：<code>act_re_deployment</code>:流程部署表<code>act_re_procdef</code>：流程定义表</p>
+<p>注：一个流程部署可以包含多个流程定义</p>
+</li>
+</ol>
+<h3 id="3-3-1-流程部署"><a href="#3-3-1-流程部署" class="headerlink" title="3.3.1 流程部署"></a>3.3.1 流程部署</h3><ol>
+<li>需要通过<code>repositoryService</code>来完成</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 流程部署操作</span><br><span class="line"> */</span><br><span class="line">@Test</span><br><span class="line">public void test03()&#123;</span><br><span class="line">    //1. 获取processEngine对象</span><br><span class="line">    ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">    //2. 完成流程的部署操作，需要通过repositoryService来完成</span><br><span class="line">    RepositoryService repositoryService = processEngine.getRepositoryService();</span><br><span class="line">    //3. 完成部署</span><br><span class="line">    Deployment deploy = repositoryService.createDeployment()</span><br><span class="line">            .addClasspathResource(&quot;bpmn/LeaveApply.bpmn20.xml&quot;)</span><br><span class="line">            .name(&quot;第一个流程&quot;)</span><br><span class="line">            .deploy();</span><br><span class="line">    System.out.println(deploy.getId());</span><br><span class="line">    System.out.println(deploy.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>流程定义信息查询：需要通过<code>repositoryService</code>来完成查询</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查询当前部署的流程有哪些</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test04</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//1. 获取processEngine对象</span></span><br><span class="line">    <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">    <span class="comment">//2. 需要通过repositoryService来完成查询</span></span><br><span class="line">    <span class="type">RepositoryService</span> <span class="variable">repositoryService</span> <span class="operator">=</span> processEngine.getRepositoryService();</span><br><span class="line">    <span class="comment">//repositoryService.createProcessDefinitionQuery()//查询流程定义信息</span></span><br><span class="line">    List&lt;ProcessDefinition&gt; list = repositoryService.createProcessDefinitionQuery().list();</span><br><span class="line">    System.out.println(<span class="string">&quot;流程定义信息如下：&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (ProcessDefinition processDefinition:list</span><br><span class="line">         ) &#123;</span><br><span class="line">        System.out.println(processDefinition.getId());</span><br><span class="line">        System.out.println(processDefinition.getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//repositoryService.createDeploymentQuery()//查询流程部署信息==》相关流程定义的信息</span></span><br><span class="line">    System.out.println(<span class="string">&quot;流程部署信息如下：&quot;</span>);</span><br><span class="line">    List&lt;Deployment&gt; list1 = repositoryService.createDeploymentQuery().list();</span><br><span class="line">    <span class="keyword">for</span> (Deployment deployment:list1</span><br><span class="line">         ) &#123;</span><br><span class="line">        System.out.println(deployment.getId());</span><br><span class="line">        System.out.println(deployment.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>即 我们可以通过Activiti相关的API获取相关的流程部署和流程定义的信息</li>
+</ol>
+<h3 id="3-3-2-发起流程"><a href="#3-3-2-发起流程" class="headerlink" title="3.3.2 发起流程"></a>3.3.2 发起流程</h3><ol>
+<li><p>获取processEngine对象后，通过runtimeService获取流程定义的一个流程实例对象去发起流程 （流程定义：查act_re_procdef表）</p>
+</li>
+<li><p>编写test</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 发起一个流程</span></span><br><span class="line"><span class="comment"> * 通过runtimeService获取流程定义的实例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title function_">test05</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//获取processEngine对象</span></span><br><span class="line">    <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">    <span class="type">RuntimeService</span> <span class="variable">runtimeService</span> <span class="operator">=</span> processEngine.getRuntimeService();</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//通过runtimeService获取流程定义的一个流程实例对象    流程定义：查act_re_procdef表</span></span><br><span class="line">    <span class="type">ProcessInstance</span> <span class="variable">processInstance</span> <span class="operator">=</span> runtimeService.startProcessInstanceById(<span class="string">&quot;MyLeave:1:3&quot;</span>);</span><br><span class="line">   </span><br><span class="line">    System.out.println(<span class="string">&quot;processInstance.getId() = &quot;</span> + processInstance.getId());</span><br><span class="line">    System.out.println(<span class="string">&quot;processInstance.getDeploymentId() = &quot;</span> + processInstance.getDeploymentId());</span><br><span class="line">    System.out.println(<span class="string">&quot;processInstance.getDescription() = &quot;</span> + processInstance.getDescription());</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发起流程成功后，可在数据库<code>act_ru_task</code>表中看到如下信息，<code>Assignee</code>是指当前流程处理人</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/RoleHalo/blog-image/raw/master/image/%E6%B5%81%E7%A8%8B%E5%8F%91%E8%B5%B7act_ru_task%E8%A1%A8.png" alt="流程发起act_ru_task表"></p>
+<h3 id="3-3-3-查询流程"><a href="#3-3-3-查询流程" class="headerlink" title="3.3.3 查询流程"></a>3.3.3 查询流程</h3><ol>
+<li><p>查询待办执行中的任务处理是通过 TaskService来实现</p>
+</li>
+<li><p>Task 对象对应的其实就是 act_ru_task 这张表的记录</p>
+</li>
+<li><p>编写test方法代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *待办查询</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test06</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//查询待办 执行中的任务处理是通过 TaskService来实现</span></span><br><span class="line">    <span class="type">TaskService</span> <span class="variable">taskService</span> <span class="operator">=</span> processEngine.getTaskService();</span><br><span class="line">    <span class="comment">//Task 对象对应的其实就是 act_ru_task 这张表的记录</span></span><br><span class="line">    List&lt;Task&gt; employeeList = taskService.createTaskQuery().taskAssignee(<span class="string">&quot;zhangsan&quot;</span>).list();</span><br><span class="line">    <span class="keyword">if</span>(employeeList!=<span class="literal">null</span> &amp;&amp; employeeList.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> (Task task : employeeList) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;task.getId() = &quot;</span> + task.getId());</span><br><span class="line">            System.out.println(<span class="string">&quot;task.getName() = &quot;</span> + task.getName());</span><br><span class="line">            System.out.println(<span class="string">&quot;task.getAssignee() = &quot;</span> + task.getAssignee());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;当前没有待办任务&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-3-4-审批流程"><a href="#3-3-4-审批流程" class="headerlink" title="3.3.4 审批流程"></a>3.3.4 审批流程</h3><ol>
+<li><p>查询用户的所有待办，当前登录用户查询到相关审批流程信息后可以进行审批</p>
+</li>
+<li><p>通过TaskService来实现</p>
+</li>
+<li><p>编写test方法代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 完成待办审批</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Test</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test07</span><span class="params">()</span>&#123;</span><br><span class="line">     <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">   </span><br><span class="line">     <span class="type">TaskService</span> <span class="variable">taskService</span> <span class="operator">=</span> processEngine.getTaskService();</span><br><span class="line">     <span class="comment">//taskService.complete(&quot;2505&quot;);//模拟1  模拟对当前登录用户（employee）完成当前审批节点 使得 Assignee 从 employee --&gt; zhangsan</span></span><br><span class="line">   </span><br><span class="line">     <span class="comment">//模拟2 对模拟流程稍作完善</span></span><br><span class="line">     <span class="comment">//List&lt;Task&gt; list = taskService.createTaskQuery().taskAssignee(&quot;zhangsan&quot;).list();//模拟对当前登录用户（zhangsan）完成当前审批节点使得 Assignee 从 zhangsan --&gt; lisi</span></span><br><span class="line">     List&lt;Task&gt; list = taskService.createTaskQuery().taskAssignee(<span class="string">&quot;lisi&quot;</span>).list();<span class="comment">//模拟对当前登录用户（lisi）完成当前审批节点  lisi是最后一个 Assignee  所以lisi完成后数据库中该task会被删除，</span></span><br><span class="line">     <span class="keyword">if</span>(list!= <span class="literal">null</span> &amp;&amp; list.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">         <span class="keyword">for</span> (Task task : list) &#123;</span><br><span class="line">             <span class="comment">//模拟对当前登录用户下的某个task做相关审批处理 完成该流程的本审批节点</span></span><br><span class="line">             <span class="comment">//具体应该根据前端用户的操作数据获取值 进而进行下一步的相关审批</span></span><br><span class="line">             taskService.complete(task.getId());</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;当前没有待办任务&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-3-5-涉及的表"><a href="#3-3-5-涉及的表" class="headerlink" title="3.3.5 涉及的表"></a>3.3.5 涉及的表</h3><p>上面一个审批流程下来所涉及的表结构</p>
+<table>
+<thead>
+<tr>
+<th>表名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>act_re_deployment</td>
+<td>部署流程的记录表：一次部署行为会产生一张表</td>
+</tr>
+<tr>
+<td>act_re_procdef</td>
+<td>流程定义表：一张流程图对应的表</td>
+</tr>
+<tr>
+<td>act_hi_procinst</td>
+<td>流程实例表：发起一个流程，就会创建对应的一张表</td>
+</tr>
+<tr>
+<td>act_ru_task</td>
+<td>流程待办表：当前需要审批的记录表，节点审批后就会被删除</td>
+</tr>
+<tr>
+<td>act_hi_actinst</td>
+<td>历史记录表：流程审批节点的记录信息</td>
+</tr>
+</tbody></table>
+<h1 id="四、任务分配"><a href="#四、任务分配" class="headerlink" title="四、任务分配"></a>四、任务分配</h1><h2 id="4-1-固定分配"><a href="#4-1-固定分配" class="headerlink" title="4.1 固定分配"></a>4.1 固定分配</h2><p>如Part3案例代码中test方法所写，即把任务流程静态指派给固定的用户，正常业务中都要动态处理，基本不会用到该方式。</p>
+<h2 id="4-2-表达式"><a href="#4-2-表达式" class="headerlink" title="4.2 表达式"></a>4.2 表达式</h2><h3 id="4-2-1-值表达式"><a href="#4-2-1-值表达式" class="headerlink" title="4.2.1 值表达式"></a>4.2.1 值表达式</h3><ol>
+<li>xml配置文件中对应属性设置<code>$&#123;&#125;</code>占位符</li>
+<li>编写test方法，<code>runtimeService.startProcessInstanceById</code>方法有重载，在传入流程定义id的同时可以通过map传第二个参数值</li>
+</ol>
+<h3 id="4-2-2-方法表达式"><a href="#4-2-2-方法表达式" class="headerlink" title="4.2.2 方法表达式"></a>4.2.2 方法表达式</h3><ol>
+<li>xml配置文件中对应位置设置<code>$&#123;&#125;</code>，传入<code>已注册的bean名字.方法</code>实现调用</li>
+<li>测试方法和前边Part3测试方法相同，无需额外传入参数，参数由容器自动注入</li>
+</ol>
+<h2 id="4-3-监听器配置"><a href="#4-3-监听器配置" class="headerlink" title="4.3 监听器配置"></a>4.3 监听器配置</h2><ol>
+<li><p>监听器分为三种：JavaDelegate TaskListener ExecutionListener</p>
+<ul>
+<li>用户任务（UserTask）的监听器为TaskListener</li>
+<li>Java服务任务（Service Task）的监听器为JavaDelegate</li>
+<li>其他的服务的监听器为ExecutionListener</li>
+<li>TaskListener中参数（DelegateTask）是有关于userTask的</li>
+<li>JavaDelegate和ExecutionListener参数（DelegateExecution）是有关于流程的</li>
 </ul>
 </li>
-<li>Lambda运算符(1个)：-&gt;</li>
-</ol>
+<li><p>编写监听器类(根据需求实现指定监听器接口，如TaskListener )</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//此类定义的是用户进程监听器</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyFirstListener</span> <span class="keyword">implements</span> <span class="title class_">TaskListener</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 监听器触发回调方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> delegateTask</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">notify</span><span class="params">(DelegateTask delegateTask)</span> &#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;-----&gt;自定义的监听器执行了&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(EVENTNAME_CREATE.equals(delegateTask.getEventName()))&#123;</span><br><span class="line">            <span class="comment">//表示是Task的创建事件被触发了</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//1.指定当前Task节点的处理人</span></span><br><span class="line">            delegateTask.setAssignee(<span class="string">&quot;wangwu&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>按操作数个数<ol>
-<li>一元运算符（单目运算符）: +、-、++、–、！、~</li>
-<li>二元运算符（双目运算符）</li>
-<li>三元运算符（三目运算符）: (条件表达式)？结果1：结果2</li>
-</ol>
-</li>
-</ol>
-<h1 id="第三章-流量控制"><a href="#第三章-流量控制" class="headerlink" title="第三章 流量控制"></a>第三章 流量控制</h1><ol>
-<li>if-else结构</li>
-<li>Scanner类</li>
-<li>switch-case</li>
-<li>for循环</li>
-<li>while循环和do-while循环</li>
-<li>无限循环结构和嵌套循环的使用</li>
-</ol>
+<li><p>编写xml配置文件，<strong>指定流程节点</strong>添加扩展属性（以：taskListener为例）  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bpmn:userTask id=<span class="string">&quot;employeeLeaveApply&quot;</span> name=<span class="string">&quot;员工提交请假申请&quot;</span>&gt;</span><br><span class="line">      &lt;bpmn:extensionElements&gt;</span><br><span class="line">        &lt;activiti:taskListener event=<span class="string">&quot;create&quot;</span> class=<span class="string">&quot;com.lm.activiti7study.listener.MyFirstListener&quot;</span> /&gt;</span><br><span class="line">      &lt;/bpmn:extensionElements&gt;</span><br><span class="line">      &lt;bpmn:incoming&gt;Flow_07i37nu&lt;/bpmn:incoming&gt;</span><br><span class="line">      &lt;bpmn:outgoing&gt;Flow_0xbl72x&lt;/bpmn:outgoing&gt;</span><br><span class="line"> &lt;/bpmn:userTask&gt;</span><br></pre></td></tr></table></figure>
 
+<p>注：event属性要先写，否则可能会的读不到值而导致监听失败</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bpmn:extensionElements&gt;</span><br><span class="line">  &lt;activiti:taskListener event=<span class="string">&quot;create&quot;</span> class=<span class="string">&quot;com.lm.activiti7study.listener.MyFirstListener&quot;</span> /&gt;</span><br><span class="line">&lt;/bpmn:extensionElements&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写test类。无特殊参数，和前边Part3测试方法相同</p>
+</li>
+</ol>
+<h1 id="五、流程变量"><a href="#五、流程变量" class="headerlink" title="五、流程变量"></a>五、流程变量</h1><p>监听器中更改流程变量不能通过map.set方法。而要通过如：<code>delegateTask.setVariable(key,obj+&quot;-lm123&quot;);//有效操作√</code>方式进行设置</p>
+<h2 id="5-1-运行时流程变量"><a href="#5-1-运行时流程变量" class="headerlink" title="5.1 运行时流程变量"></a>5.1 运行时流程变量</h2><h3 id="5-1-1-全局流程变量"><a href="#5-1-1-全局流程变量" class="headerlink" title="5.1.1 全局流程变量"></a>5.1.1 全局流程变量</h3><ol>
+<li><p>流程变量的默认作用域是流程实例，<strong>随着流程实例的完成而消失</strong>。</p>
+</li>
+<li><p>当一个流程变量作用域是流程实例时，成为<code>Global</code>变量。</p>
+<ol>
+<li>变量名不许重复</li>
+<li>设置相同变量名的值，会进行覆盖</li>
+<li>使用过程中会记录在<code>act_ru_variable</code>中</li>
+</ol>
+</li>
+<li><p>编写监听器代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 更改流程变量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//此类定义的是用户进程监听器</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySecondListener</span> <span class="keyword">implements</span> <span class="title class_">TaskListener</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 监听器触发回调方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> delegateTask</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">notify</span><span class="params">(DelegateTask delegateTask)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&gt;MySecondListener监听器执行了&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(EVENTNAME_CREATE.equals(delegateTask.getEventName()))&#123;</span><br><span class="line">            <span class="comment">//表示是Task的创建事件被触发了</span></span><br><span class="line">            <span class="comment">//获取流程变量</span></span><br><span class="line">            Map&lt;String, Object&gt; variables = delegateTask.getVariables();</span><br><span class="line">            Set&lt;String&gt; keySet = variables.keySet();</span><br><span class="line">            <span class="keyword">for</span> (String key : keySet) &#123;</span><br><span class="line">                <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> variables.get(key);</span><br><span class="line">                System.out.println(key+<span class="string">&quot;=&quot;</span>+obj);</span><br><span class="line">                <span class="comment">//获取之后修改流程变量</span></span><br><span class="line">                <span class="comment">// variables.put(key,&quot;lm123&quot;);//此方法是无效的</span></span><br><span class="line">                delegateTask.setVariable(key,obj+<span class="string">&quot;-lm123&quot;</span>);<span class="comment">//有效操作√</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计流程(编写xml文件) ，给指定的流程节点进行<code>值表达式配置（$&#123;&#125;）</code>。如下以某流程节点为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bpmn:userTask id=<span class="string">&quot;employeeLeaveApply&quot;</span> name=<span class="string">&quot;员工提交请假申请&quot;</span> activiti:assignee=<span class="string">&quot;$&#123;assignee1&#125;&quot;</span>&gt;</span><br><span class="line">      &lt;bpmn:extensionElements&gt;</span><br><span class="line">        &lt;activiti:taskListener event=<span class="string">&quot;create&quot;</span> class=<span class="string">&quot;com.lm.activiti7study.listener.MyThirdListener&quot;</span>/&gt;</span><br><span class="line">      &lt;/bpmn:extensionElements&gt;</span><br><span class="line">      &lt;bpmn:incoming&gt;Flow_07i37nu&lt;/bpmn:incoming&gt;</span><br><span class="line">      &lt;bpmn:outgoing&gt;Flow_0xbl72x&lt;/bpmn:outgoing&gt;</span><br><span class="line">    &lt;/bpmn:userTask&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写test方法代码进行部署等测试（启动流程实例时需要通过map传入参数）</p>
+<ul>
+<li><p>测试方法通过<code>值表达式</code>进行传值一定是全局变量，不能传局部变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 设置全局流程变量</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="keyword">public</span>  <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//获取processEngine对象</span></span><br><span class="line">       <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">       <span class="type">RuntimeService</span> <span class="variable">runtimeService</span> <span class="operator">=</span> processEngine.getRuntimeService();</span><br><span class="line">       Map&lt;String,Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">       map.put(<span class="string">&quot;assignee1&quot;</span>,<span class="string">&quot;assignee1张&quot;</span>);</span><br><span class="line">       map.put(<span class="string">&quot;assignee2&quot;</span>,<span class="string">&quot;assignee2李&quot;</span>);</span><br><span class="line">       map.put(<span class="string">&quot;assignee3&quot;</span>,<span class="string">&quot;assignee3王&quot;</span>);</span><br><span class="line">       map.put(<span class="string">&quot;as1&quot;</span>,<span class="string">&quot;赵&quot;</span>);</span><br><span class="line">       map.put(<span class="string">&quot;as2&quot;</span>,<span class="string">&quot;周&quot;</span>);</span><br><span class="line">       <span class="comment">//传参 且此时会触发监听器中的修改办法</span></span><br><span class="line">       <span class="comment">//可以在act_ru_variable表中看到</span></span><br><span class="line">       <span class="type">ProcessInstance</span> <span class="variable">processInstance</span> <span class="operator">=</span> runtimeService.startProcessInstanceById(<span class="string">&quot;LeaveApply:3:7503&quot;</span>,map);<span class="comment">//模拟测试发起一个流程</span></span><br><span class="line">     </span><br><span class="line">       System.out.println(<span class="string">&quot;processInstance.getId() = &quot;</span> + processInstance.getId());</span><br><span class="line">       System.out.println(<span class="string">&quot;processInstance.getDeploymentId() = &quot;</span> + processInstance.getDeploymentId());</span><br><span class="line">       System.out.println(<span class="string">&quot;processInstance.getDescription() = &quot;</span> + processInstance.getDescription());</span><br><span class="line">     </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取全局变量：<code>runtimeService.getVariableInstances(&quot;某实例的Execution_ID&quot;)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 查询当前流程变量信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test4</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//获取processEngine对象</span></span><br><span class="line">        <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">        <span class="type">RuntimeService</span> <span class="variable">runtimeService</span> <span class="operator">=</span> processEngine.getRuntimeService();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//查 某个流程实例 的变量信息 而不是某个流程定义下所有实例的全部流程变量</span></span><br><span class="line">        <span class="comment">//传参 执行时ID   ==》 查act_ru_task中的 Execution_ID</span></span><br><span class="line">        Map&lt;String, VariableInstance&gt; variableInstances = runtimeService.getVariableInstances(<span class="string">&quot;10007&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&gt;获取后输出当前流程实例变量&quot;</span>);</span><br><span class="line">        Set&lt;String&gt; keySet = variableInstances.keySet();</span><br><span class="line">        <span class="keyword">for</span> (String key : keySet) &#123;</span><br><span class="line">            System.out.println(key+<span class="string">&quot;=&quot;</span>+variableInstances.get(key));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="5-1-2-局部流程变量"><a href="#5-1-2-局部流程变量" class="headerlink" title="5.1.2 局部流程变量"></a>5.1.2 局部流程变量</h3><ol>
+<li><p>编写监听器代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试局部和历史流程变量</span></span><br><span class="line"><span class="comment"> *      更改流程变量 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//此类定义的是用户进程监听器</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThirdListener</span> <span class="keyword">implements</span> <span class="title class_">TaskListener</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 监听器触发回调方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> delegateTask</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">notify</span><span class="params">(DelegateTask delegateTask)</span> &#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;-----&gt;MyThirdListener监听器执行了&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(EVENTNAME_CREATE.equals(delegateTask.getEventName()))&#123;</span><br><span class="line">            <span class="comment">//表示是Task的创建事件被触发了</span></span><br><span class="line">            <span class="comment">//获取流程变量</span></span><br><span class="line">            Map&lt;String, Object&gt; variables = delegateTask.getVariables();</span><br><span class="line">            Set&lt;String&gt; keySet = variables.keySet();</span><br><span class="line">            <span class="keyword">for</span> (String key : keySet) &#123;</span><br><span class="line">                <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> variables.get(key);</span><br><span class="line">                System.out.println(key+<span class="string">&quot;=&quot;</span>+obj);</span><br><span class="line">                <span class="comment">//获取之后修改流程变量</span></span><br><span class="line">             <span class="comment">//   delegateTask.setVariable(key,obj+&quot;[]&quot;);//有效操作√</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计流程(编写xml文件)：和全局变量配置文件相同，无变化。（即使用值表达式配置）</p>
+</li>
+<li><p>编写test方法代码</p>
+<ol>
+<li><p>设置必要的全局变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * runtimeService 设置全局流程变量</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="keyword">public</span>  <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//获取processEngine对象</span></span><br><span class="line">       <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">       <span class="type">RuntimeService</span> <span class="variable">runtimeService</span> <span class="operator">=</span> processEngine.getRuntimeService();</span><br><span class="line">       <span class="comment">//此处为设置全局变量</span></span><br><span class="line">       Map&lt;String,Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">       map.put(<span class="string">&quot;assignee1&quot;</span>,<span class="string">&quot;assignee1张&quot;</span>);</span><br><span class="line">       map.put(<span class="string">&quot;assignee2&quot;</span>,<span class="string">&quot;assignee2李&quot;</span>);</span><br><span class="line">       map.put(<span class="string">&quot;assignee3&quot;</span>,<span class="string">&quot;assignee3王&quot;</span>);</span><br><span class="line">      </span><br><span class="line">       <span class="comment">//通过runtimeService获取流程定义的一个流程实例对象    流程定义：查act_re_procdef表</span></span><br><span class="line">       <span class="comment">//使用值表达式需要传入全局变量</span></span><br><span class="line">       <span class="type">ProcessInstance</span> <span class="variable">processInstance</span> <span class="operator">=</span> runtimeService.startProcessInstanceById(<span class="string">&quot;LeaveApply:4:20003&quot;</span>,map);<span class="comment">//模拟测试发起一个流程</span></span><br><span class="line">      </span><br><span class="line">       System.out.println(<span class="string">&quot;processInstance.getId() = &quot;</span> + processInstance.getId());</span><br><span class="line">       System.out.println(<span class="string">&quot;processInstance.getDeploymentId() = &quot;</span> + processInstance.getDeploymentId());</span><br><span class="line">       System.out.println(<span class="string">&quot;processInstance.getDescription() = &quot;</span> + processInstance.getDescription());</span><br><span class="line">      </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置局部变量的两种方式如下。<strong>局部变量，通过某网关分支后，局部变量会变得不同</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * runtimeService 设置局部变量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test3</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">    <span class="type">RuntimeService</span> <span class="variable">runtimeService</span> <span class="operator">=</span> processEngine.getRuntimeService();</span><br><span class="line">      </span><br><span class="line">    <span class="comment">//传参  运行时ID及局部变量键值对形式</span></span><br><span class="line">    runtimeService.setVariableLocal(<span class="string">&quot;22505&quot;</span>,<span class="string">&quot;leaveId&quot;</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    runtimeService.setVariableLocal(<span class="string">&quot;22505&quot;</span>,<span class="string">&quot;name&quot;</span>,<span class="string">&quot;666&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">      </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TaskService 设置局部变量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test5</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">    <span class="type">TaskService</span> <span class="variable">taskService</span> <span class="operator">=</span> processEngine.getTaskService();</span><br><span class="line">    taskService.setVariableLocal(<span class="string">&quot;22508&quot;</span>,<span class="string">&quot;taskServiceTest&quot;</span>,<span class="string">&quot;6666666&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    区别：传入参数不同:<code>runtimeService</code>需要传入运行时ID（查<code>act_ru_task</code>表的<code>Execution_ID</code>）;<code>TaskService</code>需要传入任务ID(查<code>act_ru_task</code>表的<code>ID</code>）</p>
+</li>
+<li><p>读取局部变量（两种方法设置要用两种对应的方法读取，互相读取不到对方设置的局部变量。）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">      		<span class="comment">/**</span></span><br><span class="line"><span class="comment">           * 读取局部变量</span></span><br><span class="line"><span class="comment">           */</span></span><br><span class="line">          <span class="meta">@Test</span></span><br><span class="line">          <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test4</span><span class="params">()</span>&#123;</span><br><span class="line">              <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">              <span class="type">RuntimeService</span> <span class="variable">runtimeService</span> <span class="operator">=</span> processEngine.getRuntimeService();</span><br><span class="line">              <span class="type">TaskService</span> <span class="variable">taskService</span> <span class="operator">=</span> processEngine.getTaskService();</span><br><span class="line">      </span><br><span class="line">              <span class="comment">//传参  运行时ID  查act_ru_task的Execution_ID</span></span><br><span class="line">              Map&lt;String, Object&gt; variablesLocal = runtimeService.getVariablesLocal(<span class="string">&quot;22505&quot;</span>);</span><br><span class="line">              System.out.println(<span class="string">&quot;-------&gt;runtimeService获取当前流程实例的局部变量&quot;</span>);</span><br><span class="line">              Set&lt;String&gt; keySet = variablesLocal.keySet();</span><br><span class="line">              <span class="keyword">for</span> (String key : keySet) &#123;</span><br><span class="line">                  System.out.println(key+<span class="string">&quot;=&quot;</span>+variablesLocal.get(key));</span><br><span class="line">              &#125;</span><br><span class="line">      </span><br><span class="line">              <span class="comment">//传参  任务ID  查act_ru_task的ID</span></span><br><span class="line">              Map&lt;String, Object&gt; variablesLocal1 = taskService.getVariablesLocal(<span class="string">&quot;22508&quot;</span>);</span><br><span class="line">              System.out.println(<span class="string">&quot;-------&gt;taskService获取当前流程实例的局部变量&quot;</span>);</span><br><span class="line">              Set&lt;String&gt; keySet1 = variablesLocal1.keySet();</span><br><span class="line">              <span class="keyword">for</span> (String key : keySet1) &#123;</span><br><span class="line">                  System.out.println(key+<span class="string">&quot;=&quot;</span>+variablesLocal1.get(key));</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">## <span class="number">5.2</span> 历史流程变量</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 流程文件不需要改变。使用值表达式分配方式</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 编写test方法查询</span><br><span class="line"></span><br><span class="line">   ```java</span><br><span class="line">   		<span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 读取历史变量</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">       <span class="meta">@Test</span></span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test7</span><span class="params">()</span>&#123;</span><br><span class="line">           <span class="type">ProcessEngine</span> <span class="variable">processEngine</span> <span class="operator">=</span> ProcessEngines.getDefaultProcessEngine();</span><br><span class="line">           <span class="type">HistoryService</span> <span class="variable">historyService</span> <span class="operator">=</span> processEngine.getHistoryService();</span><br><span class="line">   </span><br><span class="line">           <span class="comment">//historyService.createHistoricVariableInstanceQuery()</span></span><br><span class="line">           <span class="comment">// 所有工作流的历史数据都要通过historyService实现查询</span></span><br><span class="line">           <span class="comment">//存在act_hi_varinst表中 不会被删除 会”永久“保存</span></span><br><span class="line">           List&lt;HistoricVariableInstance&gt; list = historyService.createHistoricVariableInstanceQuery().list();</span><br><span class="line">           System.out.println(<span class="string">&quot;-------&gt;historyService获取当前流程实例的历史流程变量&quot;</span>);</span><br><span class="line">           <span class="keyword">for</span> (HistoricVariableInstance historicVariableInstance : list) &#123;</span><br><span class="line">               System.out.println(<span class="string">&quot;historicVariableInstance = &quot;</span> + historicVariableInstance);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h1 id="六、身份服务"><a href="#六、身份服务" class="headerlink" title="六、身份服务"></a>六、身份服务</h1><h2 id="6-1-审批人"><a href="#6-1-审批人" class="headerlink" title="6.1 审批人"></a>6.1 审批人</h2><h2 id="6-2-候选人"><a href="#6-2-候选人" class="headerlink" title="6.2 候选人"></a>6.2 候选人</h2><h2 id="6-3-候选人组"><a href="#6-3-候选人组" class="headerlink" title="6.3 候选人组"></a>6.3 候选人组</h2><h1 id="七、网关"><a href="#七、网关" class="headerlink" title="七、网关"></a>七、网关</h1><h2 id="7-1-排他网关"><a href="#7-1-排他网关" class="headerlink" title="7.1 排他网关"></a>7.1 排他网关</h2><ol>
+<li>用于流程中进行条件判断，根据不同的条件选择不同的分支路径。只有满足条件的分支会被执行，其他分支会被忽略</li>
+<li>会选择第一个条件判断为true的分支进行</li>
+<li>如果会有多个分支满足条件，也只会选择第一个满足的，且不会再接着判断其他分支条件</li>
+<li>如果分支条件为空，则认为该顺序流为true</li>
+<li>流程设计代码（xml文件）</li>
+<li>测试代码中需要通过传参形式传入条件判断所需的值</li>
+</ol>
+<h2 id="7-2-并行网关"><a href="#7-2-并行网关" class="headerlink" title="7.2 并行网关"></a>7.2 并行网关</h2><ol>
+<li>用于将流程分成多个的分支，这些分支可以同时执行</li>
+<li>当所有分支都执行完毕后，流程会继续向下执行</li>
+<li>有并行网关就需要有join网关点</li>
+<li>数据库会保存一条主流程实例信息和一条或多条子流程信息</li>
+<li>并行网关后会有一个子流程实例生成多个子流程实例</li>
+</ol>
+<h2 id="7-3-包容网关"><a href="#7-3-包容网关" class="headerlink" title="7.3 包容网关"></a>7.3 包容网关</h2><p>用于根据多个条件的组合情况选择分支路径，可以选择满足任意一个条件的分支执行，或者选择满足所有条件的分支执行。</p>
+<h2 id="7-4-事件网关"><a href="#7-4-事件网关" class="headerlink" title="7.4 事件网关"></a>7.4 事件网关</h2><p>用于根据事件的触发选择分支，当指定给的事件触发时，流程会选择对应的分支执行。</p>
+<h1 id="八、-事件"><a href="#八、-事件" class="headerlink" title="八、 事件"></a>八、 事件</h1><p>捕获：当流程执行达到这个事件时，会等待直到触发器动作。</p>
+<p>抛出：当流程执行达到这个事件时，会触发一个触发器。</p>
+<h2 id="8-1-定时器"><a href="#8-1-定时器" class="headerlink" title="8.1 定时器"></a>8.1 定时器</h2><ul>
+<li><p>可以在数据库表<code>act_ru_timer_job</code>中查询到定时器的实时信息（流程结束时定时器消亡，该表中的信息会随着定时器的消亡而删除）</p>
+</li>
+<li><p><code>timeDate</code>：指定一个具体的日期和时间。如：<code>2024-01-01T00:00:00</code></p>
+</li>
+<li><p><code>timeCycle</code>：指定一个重复周期。如：<code>R3/PT1H</code>表示每间隔1小时触发一次共触发3次</p>
+</li>
+<li><p><code>timeDate</code>：指定一个持续时间。如：<code>PT2H30M</code>表示持续2小时30分钟</p>
+</li>
+<li><p>需要开启异步执行时才会使用定时器，而异步执行默认为<code>false</code>。需要手动在配置文件中修改。即xml文件默认配置或代码形式部署配置时候<code>asyncExecutorActivate</code>属性为<code>true</code>。保证异步执行任务</p>
+<p>&#96;&#96;&#96;ja<br><!--开启异步执行  测试定时器时部署操作和执行操作需要一起 否则部署完成之后定时器会消失--><br><property name="asyncExecutorActivate" value="true"></property></p>
+</li>
+</ul>
+<h3 id="8-1-1-启动事件"><a href="#8-1-1-启动事件" class="headerlink" title="8.1.1 启动事件"></a>8.1.1 启动事件</h3><ul>
+<li>使用时需要注意<ol>
+<li>子流程不能有定时器启动事件</li>
+<li>定时器启动事件，在流程部署的同时就开始计时。不需要调用<code>startProcessInstanceByXXX</code>去启动一个实例，而是会在指定时间自动启动一个实例。调用<code>startProcessInstanceByXXX</code>时会在定时启动之外额外启动一个流程</li>
+<li>当部署带有定时器的启动事件的流程的更新版本时，上一版本的定时器作业会被移除。（这是因为通常并不希望旧版本的流程仍然自动启动新的流程实例）</li>
+</ol>
+</li>
+</ul>
+<h3 id="8-1-2-中间事件"><a href="#8-1-2-中间事件" class="headerlink" title="8.1.2 中间事件"></a>8.1.2 中间事件</h3><ol>
+<li>当我们完成前边的审批处理后，会启用定时器中间事件，完成后会接着执行后续的流程任务事件。</li>
+<li>定时器中间事件需要手动启动一个实例后才会触发</li>
+<li>如：“开始—&gt;入库审批—&gt;定时器中间事件（PT1M）—&gt;出库审批—&gt;结束”。则在<code>启动实例</code>后会进入<code>入库审批</code>，<code>入库审批</code>完成后，会进入<code>定时器</code>，<code>定时器</code>持续一分钟后，进入下一步<code>出库审批</code>任务，<code>出库审批</code>完成后会结束该工作流实例</li>
+<li>类似于<code>进程的sleep</code>操作</li>
+</ol>
+<h3 id="8-1-3-边界事件"><a href="#8-1-3-边界事件" class="headerlink" title="8.1.3 边界事件"></a>8.1.3 边界事件</h3><ol>
+<li>中断型边界事件<ol>
+<li>定时器的<code>cancelActivity</code>属性设置为false</li>
+<li>定时器触发边界事件后会转入子流程事件，同时主流程会直接结束不再往后执行</li>
+</ol>
+</li>
+<li>非中断型边界事件<ol>
+<li>定时器的<code>cancelActivity</code>属性设置为true</li>
+<li>定时器触发边界事件后会转入子流程事件，勇士主流程不会结束，会等待（如：长时间未审批会触发发送通知信息的任务子流程，同时等待审批）</li>
+<li>只有前边的审批完成后，才会转接下一个流程任务</li>
+</ol>
+</li>
+<li>主要是使用<code>attachedToRef</code>属性为定时器设置依赖的事件（传入的值为：<code>依赖事件的ID</code>）（<strong>必须要配置该属性，否则会编译报错</strong>）</li>
+</ol>
+<h2 id="8-2-消息事件"><a href="#8-2-消息事件" class="headerlink" title="8.2 消息事件"></a>8.2 消息事件</h2><p>需要先定义消息事件</p>
+<h3 id="8-2-1-启动事件"><a href="#8-2-1-启动事件" class="headerlink" title="8.2.1 启动事件"></a>8.2.1 启动事件</h3><h3 id="8-2-2-中间事件"><a href="#8-2-2-中间事件" class="headerlink" title="8.2.2 中间事件"></a>8.2.2 中间事件</h3><h3 id="8-2-3-边界事件"><a href="#8-2-3-边界事件" class="headerlink" title="8.2.3 边界事件"></a>8.2.3 边界事件</h3>
       
 
       
@@ -360,7 +620,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Activiti7</a>
         		</li>
       		
 		</ul>
@@ -416,7 +676,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/Java%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9F%BA%E7%A1%80%E8%A1%A5%E7%BC%BA%E7%89%88%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -430,18 +690,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/mysql/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          mysql学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/OracleNotes/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Oracle学习笔记</div>
+    <a href="/2023/springcloud%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring cloud项目搭建学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -468,7 +719,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">第一章 java语言概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">文档注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#API%E6%96%87%E6%A1%A3%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">API文档的说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E7%9A%84%E8%AF%AD%E8%A8%80%E7%89%B9%E7%82%B9"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">Java的语言特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JVM"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">JVM</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%8F%98%E9%87%8F%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">第二章 变量与运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E9%97%B4%E7%9A%84%E8%BD%AC%E5%8C%96"><span class="toc-number">3.0.0.4.</span> <span class="toc-text">基本数据类型变量间的转化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.0.0.5.</span> <span class="toc-text">String类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.0.0.6.</span> <span class="toc-text">运算符</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">第三章 流量控制</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">一、什么是工作流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Activiti7%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">二、Activiti7概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Activiti7%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Activiti7开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E4%B8%8B%E8%BD%BDBPMN%E8%AE%BE%E8%AE%A1%E5%99%A8"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 下载BPMN设计器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%94%AF%E6%8C%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 数据库支持</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81SpringBoot-MySQL%E6%90%AD%E5%BB%BAactiviti7%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">三、SpringBoot+MySQL搭建activiti7入门案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%88%9B%E5%BB%BAmysql%E4%B8%ADactiviti%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 创建mysql中activiti数据库的数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E5%BC%95%E5%85%A5activiti%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 引入activiti依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-test%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%B5%8B%E8%AF%95%E7%B1%BBActiviti7Test01"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 test下添加测试类Activiti7Test01</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 配置数据库信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E8%A1%A8"><span class="toc-number">3.1.4.</span> <span class="toc-text">3.1.4 数据库自动生成表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%88%9B%E5%BB%BABPMN%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 创建BPMN流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%B5%81%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 流程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E6%B5%81%E7%A8%8B%E9%83%A8%E7%BD%B2"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 流程部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E5%8F%91%E8%B5%B7%E6%B5%81%E7%A8%8B"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2 发起流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3.3 查询流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.3.4 审批流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-5-%E6%B6%89%E5%8F%8A%E7%9A%84%E8%A1%A8"><span class="toc-number">3.3.5.</span> <span class="toc-text">3.3.5 涉及的表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D"><span class="toc-number">4.</span> <span class="toc-text">四、任务分配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%9B%BA%E5%AE%9A%E5%88%86%E9%85%8D"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 固定分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1 值表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E6%96%B9%E6%B3%95%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.2.2.</span> <span class="toc-text">4.2.2 方法表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E7%9B%91%E5%90%AC%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 监听器配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F"><span class="toc-number">5.</span> <span class="toc-text">五、流程变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 运行时流程变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-1-%E5%85%A8%E5%B1%80%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F"><span class="toc-number">5.1.1.</span> <span class="toc-text">5.1.1 全局流程变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-2-%E5%B1%80%E9%83%A8%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F"><span class="toc-number">5.1.2.</span> <span class="toc-text">5.1.2 局部流程变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BA%AB%E4%BB%BD%E6%9C%8D%E5%8A%A1"><span class="toc-number">6.</span> <span class="toc-text">六、身份服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%AE%A1%E6%89%B9%E4%BA%BA"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 审批人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E5%80%99%E9%80%89%E4%BA%BA"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 候选人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E5%80%99%E9%80%89%E4%BA%BA%E7%BB%84"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 候选人组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%BD%91%E5%85%B3"><span class="toc-number">7.</span> <span class="toc-text">七、网关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E6%8E%92%E4%BB%96%E7%BD%91%E5%85%B3"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 排他网关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E5%B9%B6%E8%A1%8C%E7%BD%91%E5%85%B3"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 并行网关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%8C%85%E5%AE%B9%E7%BD%91%E5%85%B3"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 包容网关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E4%BA%8B%E4%BB%B6%E7%BD%91%E5%85%B3"><span class="toc-number">7.4.</span> <span class="toc-text">7.4 事件网关</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81-%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">八、 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-1-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.1.1.</span> <span class="toc-text">8.1.1 启动事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-2-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.1.2.</span> <span class="toc-text">8.1.2 中间事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-3-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.1.3.</span> <span class="toc-text">8.1.3 边界事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E6%B6%88%E6%81%AF%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 消息事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.2.1.</span> <span class="toc-text">8.2.1 启动事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.2.2.</span> <span class="toc-text">8.2.2 中间事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-3-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6"><span class="toc-number">8.2.3.</span> <span class="toc-text">8.2.3 边界事件</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
