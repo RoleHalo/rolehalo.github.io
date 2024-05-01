@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Unicornis</title>
+  <title>Java基础及集合框架 | Unicornis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="努力和自律才是最好的运气">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Unicornis">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="集合概述 ​                                                                                                图1-1 Java集合框架 Java集合，也叫做容器，主要由两大类接口派生而来  Collection: 主要存放单一元素。又派生出：List、Set、Queue Map：主要存放键值对  Lis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础及集合框架">
+<meta property="og:url" content="http://example.com/2023/java%E5%9F%BA%E7%A1%80%E5%8F%8A%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="Unicornis">
-<meta property="og:description" content="努力和自律才是最好的运气">
+<meta property="og:description" content="集合概述 ​                                                                                                图1-1 Java集合框架 Java集合，也叫做容器，主要由两大类接口派生而来  Collection: 主要存放单一元素。又派生出：List、Set、Queue Map：主要存放键值对  Lis">
 <meta property="og:locale">
+<meta property="og:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/Java-CollectionFramework/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%93%E7%B3%BB%E8%A7%A3%E6%9E%84.png">
+<meta property="og:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/Java-CollectionFramework/HashMap%E6%89%A9%E5%AE%B9%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="e:/Git_repositories/blog-image/image/Java-CollectionFramework&和%运算的对应关系.png">
+<meta property="og:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/Java-CollectionFramework/ThreadState.png">
+<meta property="article:published_time" content="2023-08-06T02:13:10.000Z">
+<meta property="article:modified_time" content="2024-05-01T08:37:00.177Z">
 <meta property="article:author" content="Unicornis">
-<meta property="article:tag" content="Unicornis">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/RoleHalo/blog-image/raw/master/image/Java-CollectionFramework/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%93%E7%B3%BB%E8%A7%A3%E6%9E%84.png">
   
     <link rel="alternative" href="/atom.xml" title="Unicornis" type="application/atom+xml">
   
@@ -155,355 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Docker学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-java基础及集合框架" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Docker学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2023/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2023-10-14T01:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><a href="#docker%E5%AE%89%E8%A3%85ubuntu%E7%8E%AF%E5%A2%83">Docker安装(Ubuntu环境)</a></li>
-<li><a href="#docker%E5%91%BD%E4%BB%A4">Docker命令</a><ul>
-<li><a href="#%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4">帮助命令</a></li>
-<li><a href="#%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4">镜像命令</a></li>
-<li><a href="#%E5%AE%B9%E5%99%A8%E5%91%BD%E4%BB%A4">容器命令</a></li>
-<li><a href="#%E5%B8%B8%E7%94%A8%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4">常用其他操作命令</a></li>
-<li><a href="#%E5%8F%AF%E8%A7%86%E5%8C%96">可视化</a><ul>
-<li><a href="#portainer">portainer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#docker%E9%95%9C%E5%83%8F">Docker镜像</a><ul>
-<li><a href="#%E9%95%9C%E5%83%8F">镜像</a></li>
-<li><a href="#docker%E9%95%9C%E5%83%8F%E5%8A%A0%E8%BD%BD%E5%8E%9F%E7%90%86">Docker镜像加载原理</a></li>
-<li><a href="#commmit-%E9%95%9C%E5%83%8F">Commmit 镜像</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E5%8D%B7">容器数据卷</a><ul>
-<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E5%8D%B7">使用容器数据卷</a></li>
-<li><a href="#%E5%AE%9E%E6%88%98%E5%AE%89%E8%A3%85mysql">实战：安装MySQL</a></li>
-<li><a href="#%E5%85%B7%E5%90%8D%E6%8C%82%E8%BD%BD%E5%92%8C%E5%8C%BF%E5%90%8D%E6%8C%82%E8%BD%BD">具名挂载和匿名挂载</a></li>
-<li><a href="#%E5%88%9D%E8%AF%86dockerfile">初识DockerFile</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8">数据卷容器</a></li>
-</ul>
-</li>
-<li><a href="#dockerfile">DockerFile</a></li>
-<li><a href="#docker%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86"><strong>Docker</strong>网络原理</a></li>
-<li><a href="#idea%E6%95%B4%E5%90%88docker">IDEA整合Docker</a></li>
-<li><a href="#%E9%9B%86%E7%BE%A4">集群</a><ul>
-<li><a href="#docker-compose">Docker Compose</a></li>
-<li><a href="#docker-swarm">Docker Swarm</a></li>
-<li><a href="#cicd-jenkins">CI&#x2F;CD Jenkins</a></li>
-</ul>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/redis%E5%AD%A6%E4%B9%A0/">Redis学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2023/redis%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-10-03T23:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    目录位置</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/redis%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-工作流学习笔记（activiti7）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/">Activiti7学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2023-09-24T09:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p><a href="#%E4%B8%80%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E4%BD%9C%E6%B5%81">一、什么是工作流</a></p>
-</li>
-<li><p><a href="#%E4%BA%8Cactiviti7%E6%A6%82%E8%BF%B0">二、Activiti7概述</a></p>
-<ul>
-<li><a href="#21-%E6%A6%82%E8%BF%B0">2.1 概述</a></li>
-<li><a href="#22-%E4%BD%BF%E7%94%A8">2.2 使用</a></li>
-<li><a href="#23-activiti7%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">2.3 Activiti7开发环境</a><ul>
-<li><a href="#231-%E4%B8%8B%E8%BD%BDbpmn%E8%AE%BE%E8%AE%A1%E5%99%A8">2.3.1 下载BPMN设计器</a></li>
-<li><a href="#232-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%94%AF%E6%8C%81">2.3.2 数据库支持</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><a href="#%E4%B8%89springbootmysql%E6%90%AD%E5%BB%BAactiviti7%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B">三、SpringBoot+MySQL搭建activiti7入门案例</a></p>
-<ul>
-<li><a href="#31-%E5%88%9B%E5%BB%BAmysql%E4%B8%ADactiviti%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93">3.1 创建mysql中activiti数据库的数据库</a><ul>
-<li><a href="#311-%E5%BC%95%E5%85%A5activiti%E4%BE%9D%E8%B5%96">3.1.1 引入activiti依赖</a></li>
-<li><a href="#312-test%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%B5%8B%E8%AF%95%E7%B1%BBactiviti7test01">3.1.2 test下添加测试类<code>Activiti7Test01</code></a></li>
-<li><a href="#313-%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF">3.1.3 配置数据库信息</a></li>
-<li><a href="#314-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E8%A1%A8">3.1.4 数据库自动生成表</a></li>
-</ul>
-</li>
-<li><a href="#32-%E5%88%9B%E5%BB%BAbpmn%E6%B5%81%E7%A8%8B%E5%9B%BE">3.2 创建BPMN流程图</a></li>
-<li><a href="#33-%E6%B5%81%E7%A8%8B%E6%93%8D%E4%BD%9C">3.3 流程操作</a><ul>
-<li><a href="#331-%E6%B5%81%E7%A8%8B%E9%83%A8%E7%BD%B2">3.3.1 流程部署</a></li>
-<li><a href="#332-%E5%8F%91%E8%B5%B7%E6%B5%81%E7%A8%8B">3.3.2 发起流程</a></li>
-<li><a href="#333-%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B">3.3.3 查询流程</a></li>
-<li><a href="#334-%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B">3.3.4 审批流程</a></li>
-<li><a href="#335-%E6%B6%89%E5%8F%8A%E7%9A%84%E8%A1%A8">3.3.5 涉及的表</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><a href="#%E5%9B%9B%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D">四、任务分配</a></p>
-<ul>
-<li><a href="#41-%E5%9B%BA%E5%AE%9A%E5%88%86%E9%85%8D">4.1 固定分配</a></li>
-<li><a href="#42-%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2 表达式</a><ul>
-<li><a href="#421-%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2.1 值表达式</a></li>
-<li><a href="#422-%E6%96%B9%E6%B3%95%E8%A1%A8%E8%BE%BE%E5%BC%8F">4.2.2 方法表达式</a></li>
-</ul>
-</li>
-<li><a href="#43-%E7%9B%91%E5%90%AC%E5%99%A8%E9%85%8D%E7%BD%AE">4.3 监听器配置</a></li>
-</ul>
-</li>
-<li><p><a href="#%E4%BA%94%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">五、流程变量</a></p>
-<ul>
-<li><a href="#51-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1 运行时流程变量</a><ul>
-<li><a href="#511-%E5%85%A8%E5%B1%80%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1.1 全局流程变量</a></li>
-<li><a href="#512-%E5%B1%80%E9%83%A8%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.1.2 局部流程变量</a></li>
-</ul>
-</li>
-<li><a href="#52-%E5%8E%86%E5%8F%B2%E6%B5%81%E7%A8%8B%E5%8F%98%E9%87%8F">5.2 历史流程变量</a></li>
-</ul>
-</li>
-<li><p><a href="#%E5%85%AD%E8%BA%AB%E4%BB%BD%E6%9C%8D%E5%8A%A1">六、身份服务</a></p>
-<ul>
-<li><a href="#61-%E5%AE%A1%E6%89%B9%E4%BA%BA">6.1 审批人</a></li>
-<li><a href="#62-%E5%80%99%E9%80%89%E4%BA%BA">6.2 候选人</a></li>
-<li><a href="#63-%E5%80%99%E9%80%89%E4%BA%BA%E7%BB%84">6.3 候选人组</a></li>
-</ul>
-</li>
-<li><p><a href="#%E4%B8%83%E7%BD%91%E5%85%B3">七、网关</a></p>
-<ul>
-<li><a href="#71-%E6%8E%92%E4%BB%96%E7%BD%91%E5%85%B3">7.1 排他网关</a></li>
-<li><a href="#72-%E5%B9%B6%E8%A1%8C%E7%BD%91%E5%85%B3">7.2 并行网关</a></li>
-<li><a href="#73-%E5%8C%85%E5%AE%B9%E7%BD%91%E5%85%B3">7.3 包容网关</a></li>
-<li><a href="#74-%E4%BA%8B%E4%BB%B6%E7%BD%91%E5%85%B3">7.4 事件网关</a></li>
-</ul>
-</li>
-<li><p><a href="#%E5%85%AB-%E4%BA%8B%E4%BB%B6">八、 事件</a></p>
-<ul>
-<li><a href="#81-%E5%AE%9A%E6%97%B6%E5%99%A8">8.1 定时器</a><ul>
-<li><a href="#811-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6">8.1.1 启动事件</a></li>
-<li><a href="#812-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6">8.1.2 中间事件</a></li>
-<li><a href="#813-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6">8.1.3 边界事件</a></li>
-</ul>
-</li>
-<li><a href="#82-%E6%B6%88%E6%81%AF%E4%BA%8B%E4%BB%B6">8.2 消息事件</a><ul>
-<li><a href="#821-%E5%90%AF%E5%8A%A8%E4%BA%8B%E4%BB%B6">8.2.1 启动事件</a></li>
-<li><a href="#822-%E4%B8%AD%E9%97%B4%E4%BA%8B%E4%BB%B6">8.2.2 中间事件</a></li>
-<li><a href="#823-%E8%BE%B9%E7%95%8C%E4%BA%8B%E4%BB%B6">8.2.3 边界事件</a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Activiti7</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java基础及集合框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/java%E5%9F%BA%E7%A1%80%E5%8F%8A%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">Java基础及集合框架</a>
+    <h1 class="article-title" itemprop="name">
+      Java基础及集合框架
     </h1>
   
 
@@ -894,6 +560,37 @@ interface ILove2&#123;
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你 一起进步！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://gitee.com/RoleHalo/blog-image/raw/master/image/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://gitee.com/RoleHalo/blog-image/raw/master/image/image/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -912,16 +609,84 @@ interface ILove2&#123;
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/java%E5%9F%BA%E7%A1%80%E5%8F%8A%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/java%E5%9F%BA%E7%A1%80%E5%8F%8A%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2023/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88activiti7%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Activiti7学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/springcloud%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring cloud项目搭建学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -936,601 +701,32 @@ interface ILove2&#123;
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springcloud的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/springcloud%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Spring cloud项目搭建学习</a>
-    </h1>
-  
-
-        
-        <a href="/2023/springcloud%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2023-08-06T00:49:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a><ul>
-<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2">写在前面</a></li>
-<li><a href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8">远程调用</a><ul>
-<li><a href="#resttemplate">RestTemplate</a></li>
-<li><a href="#feign">Feign</a><ul>
-<li><a href="#feign%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8">Feign远程调用</a></li>
-<li><a href="#feign%E8%87%AA%E5%AE%9A%E4%B9%89">Feign自定义</a></li>
-<li><a href="#feign%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">Feign性能优化</a></li>
-<li><a href="#feign%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%88%86%E6%9E%90">Feign最佳实践分析</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83">注册中心</a><ul>
-<li><a href="#eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83ap">Eureka注册中心（AP）</a></li>
-<li><a href="#ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">Ribbon负载均衡</a></li>
-<li><a href="#nacos">Nacos</a><ul>
-<li><a href="#nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83cpap">Nacos注册中心（CP+AP）</a></li>
-<li><a href="#nacos%E6%9C%8D%E5%8A%A1%E5%A4%9A%E7%BA%A7%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B">Nacos服务多级存储模型</a></li>
-<li><a href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a></li>
-<li><a href="#%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB-namespace%E6%9C%80%E5%A4%96%E5%B1%82%E6%9C%80%E9%AB%98%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB">环境隔离-namespace（最外层&#x2F;最高隔离级别）</a></li>
-<li><a href="#nacos%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">Nacos配置管理</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>搭建测试项目各版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Maven：4.0.0</span><br><span class="line">jdk：1.8</span><br><span class="line">Spring boot：2.3.12.RELEASE（3.0以上不再支持jdk8）</span><br><span class="line">Springcloud：Hoxton.SR12（sr5以下Spring boot可用2.2.x; sr5及以上用Spring boot2.3.x）</span><br><span class="line">Mysql：8.0.33</span><br><span class="line">Mybatis：2.1.1</span><br><span class="line">Nacos：2.0.3（注意与1.0搭建集群时的配置区别）</span><br><span class="line">Nginx：1.24.0</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h2><table>
-<thead>
-<tr>
-<th>RestTemplate</th>
-<th>Feign远程调用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Http请求</td>
-<td>声明式、基于SpringMVC注解</td>
-</tr>
-</tbody></table>
-<h3 id="RestTemplate"><a href="#RestTemplate" class="headerlink" title="RestTemplate"></a>RestTemplate</h3><ul>
-<li>配置使用步骤（消费者微服务）：<ol>
-<li>注册：在启动文件中配置RestTemplate方法 使用@Bean注册为bean <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public RestTemplate restTemplate()&#123;</span><br><span class="line">    return new RestTemplate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>@Autowired依赖注入controller <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private RestTemplate restTemplate;</span><br></pre></td></tr></table></figure></li>
-<li>调用get&#x2F;post相关方法获取http返回值 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = &quot;http://userservice/user/&quot;+order.getUserId();</span><br><span class="line">User user = restTemplate.getForObject(url, User.class);   //将结果自动封装为user类</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Spring cloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/springcloud%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">集合概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ArrayList"><span class="toc-number">2.</span> <span class="toc-text">ArrayList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%BA%90%E7%A0%81"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. 源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Q-amp-A"><span class="toc-number">2.0.3.</span> <span class="toc-text">3. Q&amp;A</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%EF%BC%88BST-%E3%80%81%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E6%95%A3%E5%88%97%E8%A1%A8%EF%BC%88HashTable%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">二叉搜索树（BST)、红黑树、散列表（HashTable）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%EF%BC%88BST"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 二叉搜索树（BST)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BA%A2%E9%BB%91%E6%A0%91%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%EF%BC%89"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. 红黑树（数据库索引）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%A3%E5%88%97%E8%A1%A8%EF%BC%88HashTable%EF%BC%89"><span class="toc-number">3.0.3.</span> <span class="toc-text">3. 散列表（HashTable）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashMap"><span class="toc-number">4.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-number">4.0.1.</span> <span class="toc-text">1. HashMap的实现原理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%BA%90%E7%A0%81-1"><span class="toc-number">4.0.2.</span> <span class="toc-text">2. 源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="toc-number">4.0.3.</span> <span class="toc-text">3. 线程状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E2%80%BB"><span class="toc-number">4.0.4.</span> <span class="toc-text">4. 线程同步※</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E9%97%AE%E9%A2%98"><span class="toc-number">4.0.5.</span> <span class="toc-text">5. 线程通信问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98"><span class="toc-number">4.0.6.</span> <span class="toc-text">6. 高级主题</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-mysql语法再整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/mysql%E8%AF%AD%E6%B3%95%E5%86%8D%E6%95%B4%E7%90%86/">mysql语法再整理</a>
-    </h1>
   
 
-        
-        <a href="/2023/mysql%E8%AF%AD%E6%B3%95%E5%86%8D%E6%95%B4%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-06-18T09:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><a href="#mysql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0">mysql语法学习</a><ul>
-<li><a href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80">理论基础</a><ul>
-<li><a href="#%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5">多表连接</a><ul>
-<li><a href="#%E5%86%85%E8%BF%9E%E6%8E%A5">内连接</a></li>
-<li><a href="#%E5%A4%96%E8%BF%9E%E6%8E%A5">外连接</a></li>
-<li><a href="#%E4%BA%A4%E5%8F%89%E8%BF%9E%E6%8E%A5">交叉连接</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E5%B8%B8%E8%A7%84%E4%BE%8B%E9%A2%98">常规例题</a><ul>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-175-%E7%BB%84%E5%90%88%E4%B8%A4%E4%B8%AA%E8%A1%A8">leetcode-数据库-175-组合两个表</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-181-%E8%B6%85%E8%BF%87%E7%BB%8F%E7%90%86%E6%94%B6%E5%85%A5%E7%9A%84%E5%91%98%E5%B7%A5">leetcode-数据库-181-超过经理收入的员工</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-182-%E6%9F%A5%E6%89%BE%E9%87%8D%E5%A4%8D%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E7%AE%B1">leetcode-数据库-182-查找重复的电子邮箱</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-183-%E4%BB%8E%E4%B8%8D%E8%AE%A2%E8%B4%AD%E7%9A%84%E5%AE%A2%E6%88%B7">leetcode-数据库-183-从不订购的客户</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-196-%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E7%AE%B1">leetcode-数据库-196-删除重复的电子邮箱</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-197-%E4%B8%8A%E5%8D%87%E7%9A%84%E6%B8%A9%E5%BA%A6">leetcode-数据库-197-上升的温度</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-511-%E6%B8%B8%E6%88%8F%E7%8E%A9%E6%B3%95%E5%88%86%E6%9E%90%E2%85%B0">leetcode-数据库-511-游戏玩法分析Ⅰ</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-577-%E5%91%98%E5%B7%A5%E5%A5%96%E9%87%91">leetcode-数据库-577-员工奖金</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-584-%E5%AF%BB%E6%89%BE%E7%94%A8%E6%88%B7%E6%8E%A8%E8%8D%90%E4%BA%BA">leetcode-数据库-584-寻找用户推荐人</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-586-%E8%AE%A2%E5%8D%95%E6%9C%80%E5%A4%9A%E7%9A%84%E7%94%A8%E6%88%B7">leetcode-数据库-586-订单最多的用户</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-595-%E5%A4%A7%E7%9A%84%E5%9B%BD%E5%AE%B6">leetcode-数据库-595-大的国家</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-596-%E8%B6%85%E8%BF%875%E5%90%8D%E5%AD%A6%E7%94%9F%E7%9A%84%E8%AF%BE">leetcode-数据库-596-超过5名学生的课</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1141-%E6%9F%A5%E8%AF%A2%E8%BF%9130%E5%A4%A9%E6%B4%BB%E8%B7%83%E7%94%A8%E6%88%B7">leetcode-数据库-1141-查询近30天活跃用户</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1633-%E5%90%84%E8%B5%9B%E4%BA%8B%E7%9A%84%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E7%8E%87">leetcode-数据库-1633-各赛事的用户注册率</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1527-%E6%82%A3%E6%9F%90%E7%A7%8D%E7%96%BE%E7%97%85%E7%9A%84%E6%82%A3%E8%80%85">leetcode-数据库-1527-患某种疾病的患者</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-610-%E5%88%A4%E6%96%AD%E4%B8%89%E8%A7%92%E5%BD%A2">leetcode-数据库-610-判断三角形</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1407-%E6%8E%92%E5%90%8D%E9%9D%A0%E5%89%8D%E7%9A%84%E6%97%85%E8%A1%8C%E8%80%85">leetcode-数据库-1407-排名靠前的旅行者</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1731-%E6%AF%8F%E5%90%8D%E7%BB%8F%E7%90%86%E7%9A%84%E4%B8%8B%E5%B1%9E%E5%91%98%E5%B7%A5%E6%95%B0%E9%87%8F">leetcode-数据库-1731-每名经理的下属员工数量</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1484-%E6%8C%89%E6%97%A5%E6%9C%9F%E5%88%86%E7%BB%84%E9%94%80%E5%94%AE%E4%BA%A7%E5%93%81">leetcode-数据库-1484-按日期分组销售产品</a></li>
-<li><a href="#leetcode-%E6%95%B0%E6%8D%AE%E5%BA%93-1517-%E6%9F%A5%E6%89%BE%E6%8B%A5%E6%9C%89%E6%9C%89%E6%95%88%E9%82%AE%E7%AE%B1%E7%9A%84%E7%94%A8%E6%88%B7">leetcode-数据库-1517-查找拥有有效邮箱的用户</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="mysql语法学习"><a href="#mysql语法学习" class="headerlink" title="mysql语法学习"></a>mysql语法学习</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/mysql%E8%AF%AD%E6%B3%95%E5%86%8D%E6%95%B4%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/mysql/">mysql学习笔记</a>
-    </h1>
   
 
-        
-        <a href="/2020/mysql/" class="archive-article-date">
-  	<time datetime="2020-06-18T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a><ul>
-<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2mysql%E5%AE%89%E8%A3%85">写在前面：MySQL安装</a></li>
-<li><a href="#mysql%E9%87%8D%E7%82%B9%E5%86%85%E5%AE%B9">mysql重点内容</a><ul>
-<li><a href="#mysql%E4%BC%98%E5%8C%96">mysql优化</a><ul>
-<li><a href="#%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E6%85%A2%E6%9F%A5%E8%AF%A2">如何定位慢查询</a></li>
-<li><a href="#%E4%BC%98%E5%8C%96sql%E8%AF%AD%E5%8F%A5%E6%85%A2%E6%9F%A5%E8%AF%A2">优化sql语句慢查询</a></li>
-<li><a href="#%E7%B4%A2%E5%BC%95">索引</a></li>
-<li><a href="#sql%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C">sql优化经验</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8B%E5%8A%A1">事务</a><ul>
-<li><a href="#%E4%BA%8B%E5%8A%A1%E7%89%B9%E6%80%A7acid">事务特性（ACID）</a></li>
-<li><a href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB">隔离级别</a></li>
-<li><a href="#mvcc%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">MVCC（多版本并发控制）</a></li>
-</ul>
-</li>
-<li><a href="#%E6%97%A5%E5%BF%97">日志</a></li>
-<li><a href="#%E9%94%81">锁</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="写在前面：MySQL安装"><a href="#写在前面：MySQL安装" class="headerlink" title="写在前面：MySQL安装"></a>写在前面：MySQL安装</h2><ol>
-<li>MySQL可以解压到U盘里</li>
-<li>打开解压的文件夹<code>K:/softwareInstall/mysql-8.0.20-winx64</code> ，在该文件夹下创建 my.ini 配置文件，编辑 my.ini 配置以下基本信息： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line"><span class="comment"># 设置mysql客户端默认字符集</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line">    </span><br><span class="line">[mysqld]</span><br><span class="line"><span class="comment"># 设置3306端口</span></span><br><span class="line">port = 3306</span><br><span class="line"><span class="comment"># 设置mysql的安装目录</span></span><br><span class="line">basedir=K:/softwareInstall/mysql-8.0.20-winx64</span><br><span class="line"><span class="comment"># 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错</span></span><br><span class="line">datadir=K:/softwareInstall/mysql-8.0.20-winx64/data</span><br><span class="line"><span class="comment"># 允许最大连接数</span></span><br><span class="line">max_connections=20</span><br><span class="line"><span class="comment"># 服务端使用的字符集默认为8比特编码的latin1字符集</span></span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java学习（基础补缺版）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/Java%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9F%BA%E7%A1%80%E8%A1%A5%E7%BC%BA%E7%89%88%EF%BC%89/">java基础学习</a>
-    </h1>
   
 
-        
-        <a href="/2019/Java%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9F%BA%E7%A1%80%E8%A1%A5%E7%BC%BA%E7%89%88%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2019-08-06T00:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">第一章 java语言概述</a><ul>
-<li><a href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A">文档注释</a></li>
-<li><a href="#api%E6%96%87%E6%A1%A3%E7%9A%84%E8%AF%B4%E6%98%8E">API文档的说明</a></li>
-<li><a href="#java%E7%9A%84%E8%AF%AD%E8%A8%80%E7%89%B9%E7%82%B9">Java的语言特点</a></li>
-<li><a href="#jvm">JVM</a></li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%8F%98%E9%87%8F%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6">第二章 变量与运算符</a><ul>
-<li><a href="#%E5%85%B3%E9%94%AE%E5%AD%97">关键字</a></li>
-<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></li>
-<li><a href="#%E5%8F%98%E9%87%8F">变量</a></li>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E9%97%B4%E7%9A%84%E8%BD%AC%E5%8C%96">基本数据类型变量间的转化</a></li>
-<li><a href="#string%E7%B1%BB%E5%9E%8B">String类型</a></li>
-<li><a href="#%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a></li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6">第三章 流量控制</a><h1 id="第一章-java语言概述"><a href="#第一章-java语言概述" class="headerlink" title="第一章 java语言概述"></a>第一章 java语言概述</h1><h4 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h4></li>
-</ul>
-<ol>
-<li>例如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">	这是文本注释(java特有的)</span><br><span class="line">	可以被 javadoc 所解析生成一套以网页文件形式体现的该程序的说明文档</span><br><span class="line">	@author loumeng</span><br><span class="line">	@version 1.0</span><br><span class="line">*/</span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
-<li>使用命令：<code> javadoc -d mkdir -author -version 文件名.java</code>  创建文件夹为mkdir的网页文件夹
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/Java%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9F%BA%E7%A1%80%E8%A1%A5%E7%BC%BA%E7%89%88%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OracleNotes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/OracleNotes/">Oracle学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/OracleNotes/" class="archive-article-date">
-  	<time datetime="2019-06-06T03:15:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0--%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE">第一章 ： 数据库的安装以及配置</a><ul>
-<li><a href="#%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F">登录方式：</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81">修改密码：</a></li>
-<li><a href="#%E8%A7%A3%E9%94%81%E7%94%A8%E6%88%B7">解锁用户：</a></li>
-<li><a href="#%E9%94%81%E5%AE%9A%E7%94%A8%E6%88%B7">锁定用户：</a></li>
-<li><a href="#%E5%9C%A8%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0ora-12514-tns%E7%9B%91%E5%90%AC%E7%A8%8B%E5%BA%8F%E5%BD%93%E5%89%8D%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E8%BF%9E%E6%8E%A5%E6%8F%8F%E8%BF%B0%E7%AC%A6%E4%B8%AD%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">在进行网络配置的时候出现：ORA-12514: TNS:监听程序当前无法识别连接描述符中请求的服务解决方案</a></li>
-<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95">命令行用户登录：</a></li>
-<li><a href="#%E5%9C%A8sql-plus%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%89%A7%E8%A1%8Csql%E8%AF%AD%E5%8F%A5%E5%92%8Csql-plus%E5%91%BD%E4%BB%A4">在SQL Plus中可以执行SQL语句和SQL Plus命令:</a></li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0--%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84">第二章 ： 系统结构：</a><ul>
-<li><a href="#%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84">物理结构</a></li>
-<li><a href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84">逻辑结构</a><ul>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%9D%97%E5%A4%9A%E4%B8%AA--%E5%8C%BA%E5%A4%9A%E4%B8%AA--%E6%AE%B5%E5%A4%9A%E4%B8%AA--%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%A4%9A%E4%B8%AA--%E6%95%B0%E6%8D%AE%E5%BA%93">数据块(多个)–&gt;区(多个)–&gt;段(多个)–&gt;表空间(多个)–&gt;数据库</a></li>
-</ul>
-</li>
-<li><a href="#%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84">内存结构</a></li>
-<li><a href="#%E8%BF%9B%E7%A8%8B%E7%BB%93%E6%9E%84">进程结构</a><ul>
-<li><a href="#oracle%E8%BF%9B%E7%A8%8B%E7%BB%93%E6%9E%84">Oracle进程结构</a></li>
-<li><a href="#oracle%E4%BE%8B%E7%A8%8B%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B">Oracle例程后台进程</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8">数据字典</a><ul>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E7%9A%84%E5%88%86%E7%B1%BB">数据字典的分类：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0--%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">第五章  用户管理</a><ul>
-<li><a href="#%E7%89%A9%E7%90%86%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%9A%84%E8%A7%84%E5%88%92">物理存储结构的规划</a></li>
-<li><a href="#%E9%80%BB%E8%BE%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%9A%84%E8%A7%84%E5%88%92">逻辑存储结构的规划</a></li>
-<li><a href="#%E8%A1%A8%E7%A9%BA%E9%97%B4">表空间</a><ul>
-<li><a href="#1%E5%88%9B%E5%BB%BA%E8%A1%A8%E7%A9%BA%E9%97%B4">1.创建表空间</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%A9%BA%E9%97%B4">修改表空间</a></li>
-<li><a href="#%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%88%A0%E9%99%A4">表空间删除</a></li>
-<li><a href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%BF%A1%E6%81%AF">查询表空间信息</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86">数据文件设置与管理</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6">数据文件</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6">创建数据文件</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F">修改数据文件大小</a></li>
-<li><a href="#%E6%94%B9%E5%8F%98%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%8F%AF%E7%94%A8%E6%80%A7">改变数据文件的可用性</a></li>
-<li><a href="#%E6%94%B9%E5%8F%98%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%8D%E7%A7%B0%E5%92%8C%E4%BD%8D%E7%BD%AE">改变数据文件的名称和位置</a></li>
-<li><a href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF">查询数据文件信息</a></li>
-<li><a href="#%E6%8E%A7%E5%88%B6%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86">控制文件设置与管理</a></li>
-<li><a href="#%E8%A1%A5%E5%85%85oracle%E7%9A%84%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%81">补充：oracle的启动状态</a></li>
-<li><a href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%8E%A7%E5%88%B6%E6%96%87%E4%BB%B6">实现多路复用控制文件</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E6%8E%A7%E5%88%B6%E6%96%87%E4%BB%B6">删除控制文件</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E5%85%AD%E7%AB%A0">第六章</a><ul>
-<li><a href="#%E6%A8%A1%E5%BC%8F">模式</a></li>
-<li><a href="#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%8F%82%E6%95%B0">约束与参数</a><ul>
-<li><a href="#primary-key%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F">PRIMARY KEY：主键约束</a></li>
-<li><a href="#%E6%83%9F%E4%B8%80%E6%80%A7%E7%BA%A6%E6%9D%9Funique">惟一性约束：UNIQUE</a><ul>
-<li><a href="#primary-key%E4%B8%8Eunique%E6%AF%94%E8%BE%83">PRIMARY KEY与UNIQUE比较</a></li>
-</ul>
-</li>
-<li><a href="#%E6%A3%80%E6%9F%A5%E7%BA%A6%E6%9D%9F">检查约束</a></li>
-<li><a href="#%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9Fforeign-key">外键约束：FOREIGN KEY</a></li>
-<li><a href="#%E7%A9%BA%E9%9D%9E%E7%A9%BA%E7%BA%A6%E6%9D%9Fnullnot-null">空&#x2F;非空约束：NULL&#x2F;NOT NULL</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E6%95%B0">参数</a><ul>
-<li><a href="#%E5%8F%82%E6%95%B0parameter_list">参数（parameter_list）</a></li>
-<li><a href="#%E7%B4%A2%E5%BC%95">索引</a></li>
-<li><a href="#%E5%BA%8F%E5%88%97">序列</a></li>
-<li><a href="#%E5%88%86%E5%8C%BA">分区</a><ul>
-<li><a href="#%E5%88%86%E5%8C%BA%E6%A6%82%E5%BF%B5">分区概念</a></li>
-<li><a href="#%E5%AF%B9%E5%B7%A8%E5%9E%8B%E8%A1%A8%E8%BF%9B%E8%A1%8C%E5%88%86%E5%8C%BA%E5%85%B7%E6%9C%89%E4%B8%8B%E5%88%97%E4%BC%98%E7%82%B9">对巨型表进行分区具有下列优点：</a></li>
-<li><a href="#%E8%8C%83%E5%9B%B4%E5%88%86%E5%8C%BA">范围分区：</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8%E5%88%86%E5%8C%BA">列表分区</a></li>
-<li><a href="#%E6%95%A3%E5%88%97%E5%88%86%E5%8C%BA">散列分区</a></li>
-<li><a href="#%E5%A4%8D%E5%90%88%E5%88%86%E5%8C%BA">复合分区</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%95%B0%E6%8D%AE%E6%93%8D%E7%BA%B5%E4%B8%8E%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86">第七章 数据操纵与事务处理</a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/OracleNotes/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1552,8 +748,8 @@ interface ILove2&#123;
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

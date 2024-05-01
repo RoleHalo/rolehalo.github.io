@@ -16,7 +16,7 @@
 <meta property="og:description" content="目录 目录 写在前面：MySQL安装 mysql重点内容 mysql优化 如何定位慢查询 优化sql语句慢查询 索引 sql优化经验   事务 事务特性（ACID） 隔离级别 MVCC（多版本并发控制）   日志 锁      写在前面：MySQL安装 MySQL可以解压到U盘里 打开解压的文件夹K:&#x2F;softwareInstall&#x2F;mysql-8.0.20-winx64 ，在该文件夹下创建 my">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-06-18T09:18:12.000Z">
-<meta property="article:modified_time" content="2023-09-18T08:32:14.748Z">
+<meta property="article:modified_time" content="2024-04-13T08:36:37.403Z">
 <meta property="article:author" content="Unicornis">
 <meta property="article:tag" content="Mysql">
 <meta name="twitter:card" content="summary">
@@ -203,11 +203,11 @@
 </ul>
 <h2 id="写在前面：MySQL安装"><a href="#写在前面：MySQL安装" class="headerlink" title="写在前面：MySQL安装"></a>写在前面：MySQL安装</h2><ol>
 <li>MySQL可以解压到U盘里</li>
-<li>打开解压的文件夹<code>K:/softwareInstall/mysql-8.0.20-winx64</code> ，在该文件夹下创建 my.ini 配置文件，编辑 my.ini 配置以下基本信息： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line"><span class="comment"># 设置mysql客户端默认字符集</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"><span class="comment"># 设置3306端口</span></span><br><span class="line">port = 3306</span><br><span class="line"><span class="comment"># 设置mysql的安装目录</span></span><br><span class="line">basedir=K:/softwareInstall/mysql-8.0.20-winx64</span><br><span class="line"><span class="comment"># 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错</span></span><br><span class="line">datadir=K:/softwareInstall/mysql-8.0.20-winx64/data</span><br><span class="line"><span class="comment"># 允许最大连接数</span></span><br><span class="line">max_connections=20</span><br><span class="line"><span class="comment"># 服务端使用的字符集默认为8比特编码的latin1字符集</span></span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
-<span id="more"></span></li>
+<li>打开解压的文件夹<code>K:/softwareInstall/mysql-8.0.20-winx64</code> ，在该文件夹下创建 my.ini 配置文件，编辑 my.ini 配置以下基本信息： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line"><span class="comment"># 设置mysql客户端默认字符集</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line">    </span><br><span class="line">[mysqld]</span><br><span class="line"><span class="comment"># 设置3306端口</span></span><br><span class="line">port = 3306</span><br><span class="line"><span class="comment"># 设置mysql的安装目录</span></span><br><span class="line">basedir=K:/softwareInstall/mysql-8.0.20-winx64</span><br><span class="line"><span class="comment"># 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错</span></span><br><span class="line">datadir=K:/softwareInstall/mysql-8.0.20-winx64/data</span><br><span class="line"><span class="comment"># 允许最大连接数</span></span><br><span class="line">max_connections=20</span><br><span class="line"><span class="comment"># 服务端使用的字符集默认为8比特编码的latin1字符集</span></span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
+ <span id="more"></span></li>
 <li>启动下 MySQL 数据库：<code>cd K:\softwareInstall\mysql-8.0.11\bin</code> <code>mysqld --initialize --console</code><br>在 Windows 系统下，以<code>管理员</code>身份打开命令窗口(cmd)，进入 MySQL 安装目录的 bin 目录。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">启动：</span><br><span class="line">cd K:/softwareInstall/mysql-8.0.20-winx64/bin</span><br><span class="line">mysqld --console</span><br><span class="line">    </span><br><span class="line">关闭：</span><br><span class="line">cd K:/softwareInstall/mysql-8.0.20-winx64/bin</span><br><span class="line">mysqladmin -uroot shutdown</span><br></pre></td></tr></table></figure></li>
 <li>执行完成后，会输出 root 用户的初始默认密码，如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018-04-20T02:35:05.464644Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: RqUDv!g8j%D;</span><br></pre></td></tr></table></figure>
-<code>RqUDv!g8j%D;</code>就是初始密码，后续登录需要用到，你也可以在登陆后修改密码。</li>
+ <code>RqUDv!g8j%D;</code>就是初始密码，后续登录需要用到，你也可以在登陆后修改密码。</li>
 <li>输入安装命令：<code>mysqld install</code>将<code>mysql</code>服务添加到系统的<code>服务</code>中，这样下面的命令<code>net start mysql</code>才会生效。</li>
 <li>启动输入命令即可：<code>net start mysql</code> 停止服务<code>net stop mysql</code></li>
 <li>注意: 在<code>5.7</code>版本中需要初始化 data 目录: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd K:/softwareInstall/mysql-8.0.20-winx64/bin </span><br><span class="line">mysqld --initialize-insecure </span><br></pre></td></tr></table></figure></li>
@@ -222,12 +222,14 @@
 </code></pre>
 </blockquote>
 <ol>
-<li>开源工具<ul>
+<li><p>开源工具</p>
+<ul>
 <li>调试工具：Arthas</li>
 <li>运维工具：Skywalking</li>
 </ul>
 </li>
-<li>Mysql自带慢日志 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#开启mysql慢日志查询</span><br><span class="line">slow_query_loh=1</span><br><span class="line">#设置慢日志的时间为2秒，sql语句执行时间超过2秒。就会使为慢查询，记录慢查询日志（/var/lib/mysql/localhost-slow.log）</span><br><span class="line">long_query_time=2</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Mysql自带慢日志</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#开启mysql慢日志查询</span><br><span class="line">slow_query_loh=1</span><br><span class="line">#设置慢日志的时间为2秒，sql语句执行时间超过2秒。就会使为慢查询，记录慢查询日志（/var/lib/mysql/localhost-slow.log）</span><br><span class="line">long_query_time=2</span><br></pre></td></tr></table></figure></li>
 </ol>
 <hr>
 <h4 id="优化sql语句慢查询"><a href="#优化sql语句慢查询" class="headerlink" title="优化sql语句慢查询"></a>优化sql语句慢查询</h4><pre><code>&gt;     - 聚合查询
@@ -235,17 +237,17 @@
 &gt;     - 表数据量过大
 以上可以通过sql的执行计划解决。
 </code></pre>
-<p>采用explain或者desc命令获取select语句信息</p>
+<p>采用<strong>explain</strong>或者<strong>desc</strong>命令获取select语句信息</p>
 <ul>
 <li>字段解析<ul>
-<li>possible_key：当前sql可能会用到的索引</li>
-<li>key：sql实际命中的索引 key_len：索引占用的大小（两者结合可以检查索引是否命中 即索引本身存在是否有时效的情况）</li>
-<li>extra：额外的&#x3D;&#x3D;优化建议&#x3D;&#x3D;<ol>
+<li><strong>possible_key</strong>：当前sql可能会用到的索引</li>
+<li><strong>key</strong>：sql实际命中的索引 key_len：索引占用的大小（两者结合可以检查索引是否命中 即索引本身存在是否有时效的情况）</li>
+<li><strong>extra</strong>：额外的&#x3D;&#x3D;优化建议&#x3D;&#x3D;<ol>
 <li>using where、using index ：查找使用了索引，使用的数据都在索引列，不需要回表查询数据</li>
 <li>using index condition ：查找使用了索引，但需要回表查询数据（<strong>有优化的空间</strong>）</li>
 </ol>
 </li>
-<li>type：sql连接类型。性能由好到差：NULL、system、const、eq_ref、ref、range、index、all<ol>
+<li><strong>type：</strong>sql连接类型。性能&#x3D;&#x3D;由好到差&#x3D;&#x3D;：NULL、system、const、eq_ref、ref、range、index、all<ol>
 <li>system：查询系统表</li>
 <li>const：根据主键查询</li>
 <li>eq_ref：主键索引查询或唯一索引查询</li>
@@ -260,63 +262,79 @@
 </ul>
 <hr>
 <h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><ol>
-<li>什么是索引<ul>
+<li><p>什么是索引</p>
+<ul>
 <li>帮助mysql<strong>高效获取数据</strong>的数据结构（<strong>有序</strong>）。</li>
 <li>提高数据检索的效率，降低数据库的io成本</li>
 <li>通过索引对数据进行排序，降低数据排序的 成本，<strong>降低了cpu的消耗</strong></li>
-<li>数据库维护着满足<strong>特定查找算法的数据结构</strong>（B+树），这些数据结构以某种方式指向数据，在此基础上实现高级查找算法。这种数据结构就是索引</li>
 </ul>
 </li>
-<li>innodb引擎采用B+树数据结构存储索引<ul>
+<li><p>innodb引擎（MySQL默认引擎）采用<strong>B+树</strong>数据结构存储索引</p>
+<ul>
 <li>阶数更多，<strong>路径更短</strong></li>
 <li>磁盘读写代价更低，<strong>非叶子节点只存储指针</strong>，叶子节点存储数据</li>
 <li>更便于<strong>扫库和区间查询</strong>，叶子节点是一个<strong>双向链表</strong></li>
 </ul>
 </li>
-<li>聚簇索引（聚集索引）和非聚簇索引（二级索引）<ul>
-<li>聚集索引：数据和索引在一起。必须有，且只有一个。保存<strong>行数据</strong><ol>
+<li><p>B+树和B树对比优点</p>
+<ol>
+<li>磁盘读写代价更低</li>
+<li>查询效率更稳定：都要扫到叶子节点才能找到数据</li>
+<li>便于扫库和区间查询 ：叶子节点之间有双向指针，可以顺序检索</li>
+</ol>
+</li>
+<li><p>聚簇索引（聚集索引）和非聚簇索引（二级索引）</p>
+<ul>
+<li>聚簇索引（聚集索引）：<strong>数据和索引在一起</strong>。<strong>必须有，且只有一个</strong>。保存<strong>整行数据</strong><ol>
 <li>主键</li>
 <li>无主键则选（unique）唯一索引</li>
 <li>若1 2都无，数据库会自动创建id</li>
 </ol>
 </li>
-<li>二级索引：数据和索引分开存储。可以有多个。只保存<strong>主键值</strong></li>
+<li>非聚集索引（二级索引）：<strong>数据和索引分开存储</strong>。<strong>可以有多个</strong>。只保存<strong>主键值</strong>  （需要根据主键进行回表查询才能找到整条数据）  如：将name设置为二级索引 那么name为anna的索引存储的就是anna的id  10</li>
 </ul>
 </li>
-<li>回表查询：一般走<strong>二级索引</strong>情况下会需要回表查询</li>
-<li>覆盖索引：查询使用了索引，且++需要返回的列在<strong>该索引中</strong>全部++可以找到（&#x3D;&#x3D;非覆盖索引需要回表查询&#x3D;&#x3D;）<ul>
-<li>&#x3D;&#x3D;MySQL超大分页的处理&#x3D;&#x3D;：数据量比较大时，使用limit分页查询，需要对数据进行排序，越往后的页需要对数据效率越低</li>
+<li><p>回表查询：一般走<strong>二级索引</strong>情况下会需要回表查询</p>
+</li>
+<li><p>覆盖索引：查询使用了索引，且需要返回的列在<strong>该索引中</strong>全部可以找到（&#x3D;&#x3D;非覆盖索引需要回表查询&#x3D;&#x3D;）</p>
+<ul>
+<li>&#x3D;&#x3D;MySQL超大分页的处理&#x3D;&#x3D;：数据量比较大时，使用<strong>limit分页</strong>查询，需要对数据进行排序，越往后的页需要对数据效率越低</li>
 <li>优化：覆盖索引+子查询  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//查询id第9000000-9000010共10条数据</span><br><span class="line">select * from tb_user limit 9000000,10;//会对前9000010条数据全部排序，然后截取9000000-9000010共10条数据</span><br><span class="line"></span><br><span class="line">//覆盖索引+子查询优化</span><br><span class="line">select * from tb_user t (select id from tb_user order by id limit 9000000,10)a //此处为覆盖查询，会比非覆盖查询快得多）</span><br><span class="line">where t.id = a.id;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>索引创建原则<ol>
-<li>&#x3D;&#x3D;数据量大，查询频繁。单表超10w&#x3D;&#x3D;</li>
+<li><p>索引创建原则</p>
+<ol>
+<li>&#x3D;&#x3D;数据量大，查询频繁。单表超10w，增加用户体验感&#x3D;&#x3D;</li>
 <li>&#x3D;&#x3D;常常作为查询条件where、排序（order by）、分组（group by）操作的字段&#x3D;&#x3D;</li>
-<li>区分度高的列，尽量建立唯一索引。区分度越低，索引效率越低</li>
+<li>区分度高的列，尽量建立唯一索引。区分度越高，索引效率越高</li>
 <li>字符串字段，字段较长，针对字段特点建立<strong>前缀索引</strong></li>
-<li>&#x3D;&#x3D;尽量使用联合索引&#x3D;&#x3D;，减少单列索引。联合索引更多的可以实现覆盖查询，避免回表</li>
+<li>&#x3D;&#x3D;尽量使用联合索引，减少单列索引&#x3D;&#x3D;。联合索引更多的可以实现覆盖查询，避免回表</li>
 <li>&#x3D;&#x3D;控制索引的数量&#x3D;&#x3D;。索引越多维护成本也越大</li>
-<li>若索引不能存null值，创建表时使用not null约束<blockquote>
+<li>若索引不能存null值，创建表时使用not null约束</li>
+</ol>
+</li>
+</ol>
+<blockquote>
 <pre><code>- 主键索引
 - 唯一索引
 - 根据业务创建的复合索引
 </code></pre>
-</blockquote>
-</li>
-</ol>
-</li>
+<ol start="7">
 <li>什么时候索引失效<ol>
-<li>复合索引或联合索引时，&#x3D;&#x3D;违反最左前缀法则&#x3D;&#x3D;。查询使用的索引从最左开始写，不能跳过索引列</li>
-<li>&#x3D;&#x3D;范围查询右边的列&#x3D;&#x3D;，不能使用索引</li>
+<li>&#x3D;&#x3D;复合索引或联合索引时&#x3D;&#x3D;，&#x3D;&#x3D;违反最左前缀法则&#x3D;&#x3D;。查询使用的索引从最左开始写，不能跳过索引列</li>
+<li>&#x3D;&#x3D;范围查询 右边的列&#x3D;&#x3D;索引会失效</li>
 <li>不要在&#x3D;&#x3D;索引列上进行运算操作&#x3D;&#x3D;，否则失效</li>
-<li>&#x3D;&#x3D;字符串不加单引号&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;字符串不加单引号&#x3D;&#x3D;。主要是由于发生类型的转换而导致失效</li>
 <li>以%开头的like&#x3D;&#x3D;模糊查询&#x3D;&#x3D;，<strong>可能</strong>失效<ul>
 <li>%在头部会失效，如<code>%小学%</code></li>
-<li>%在尾部不会失效，如<code>小学%</code><h4 id="sql优化经验"><a href="#sql优化经验" class="headerlink" title="sql优化经验"></a>sql优化经验</h4></li>
+<li>%在尾部不会失效，如<code>小学%</code></li>
 </ul>
 </li>
 </ol>
 </li>
+</ol>
+</blockquote>
+<h4 id="sql优化经验"><a href="#sql优化经验" class="headerlink" title="sql优化经验"></a>sql优化经验</h4><ol>
 <li>表的设计 （阿里开发手册《嵩山版》）如：<ul>
 <li>设置合适的数值</li>
 <li>设置合适的字符串类型char定长效率高，varchar可变长，效率低</li>
@@ -324,30 +342,65 @@
 </li>
 <li>索引（参考索引part）</li>
 <li>sql语句<ul>
-<li>避免使用select *</li>
-<li>避免造成索引失效</li>
-<li>尽量用union all（可能会查出显示重复数据）代替union 。union会多一次过滤</li>
+<li>**避免使用select ***</li>
+<li><strong>避免造成索引失效</strong></li>
+<li>尽量用union all（可能会查出显示重复数据）代替union 。union all会把两次查询所有结果都留下，但<strong>union会多一次过滤</strong>去删除重复的数据</li>
 <li>避免在where子句中对字段进行表达式操作，以免索引失效</li>
-<li>join优化。能用innerjoin就不用left join&#x2F;rignt join。内连接会对比两个表，优先把小表放外边</li>
+<li><strong>join优化</strong>。能用innerjoin就不用left join&#x2F;rignt join，如果必须要用就以小表为驱动，内连接会对比两个表，优先把小表放外边；而left join&#x2F;rignt join就不会调整顺序</li>
 </ul>
 </li>
-<li>主从复制、读写分离：数据库读的操作较多时，为了避免操作造成的性能影响，可以使用读写分离解决数据库写入影响查询效率的问题</li>
-<li>分库分表</li>
+<li>主从复制（<strong>主要解决访问压力</strong>）、读写分离(若无相关项目 了解即可)：数据库读的操作较多时，为了避免操作造成的性能影响，可以使用读写分离解决数据库写入影响查询效率的问题</li>
+<li><strong>分库分表</strong>:  <strong>解决存储压力</strong><ul>
+<li><strong>前提</strong>：项目业务数据逐渐增多，或业务发展比较迅速   单表数据量达到1000w或20G以后</li>
+<li>优化已解决不了性能问题（主从读写分离、查询索引…）</li>
+<li>IO瓶颈（磁盘IO、网络IO）、CPU瓶颈（聚合查询、连接数太多）</li>
+<li>拆分原则(若无相关项目 了解即可)<ol>
+<li><strong>垂直分库</strong>：以<strong>表</strong>为依据，根据<strong>不同的业务</strong>将不同的表放到不同的库中   如：用户、订单、商品三个微服务<ol>
+<li>特点一：按业务对数据分级管理、维护、监控、扩展</li>
+<li>特点二：在高并发下，提高磁盘IO和数据量连接数</li>
+</ol>
+</li>
+<li><strong>垂直分表</strong>：以<strong>字段</strong>为依据，根据字段属性将<strong>不同字段</strong>拆分到不同的表中<ol>
+<li>拆分原则：把不常用的单独放在一个表中；把text、blob等大字段差分出来放在附表中</li>
+<li>特点一：冷热数据分离</li>
+<li>特点二：减少IO过度争抢，两表互不影响</li>
+</ol>
+</li>
+<li><strong>水平分库</strong>：将一个库的而数据<strong>拆分</strong>到多个库中（如 数据库user1 数据库user2 数据库user3 都是存储的user的相关表 只是范围&#x2F;分类…不一样 ）<ol>
+<li>特点一：解决了单库大数量，高并发的性能瓶颈问题</li>
+<li>特点二：提高了系统的稳定性和可用性</li>
+</ol>
+</li>
+<li><strong>水平分表</strong>：将一个表的数据拆分到多个表中（可以在一个库中 如user数据库中有  tb_order1  tb_order2   tb_order3  都是存储的order信息 只是信息范围&#x2F;分类…不一样）<ol>
+<li>特点一：优化单一数据量过大而产生的性能问题</li>
+<li>特点二：避免IO争抢并减少锁表的几率</li>
+</ol>
+</li>
+<li>策略：<ol>
+<li>mycat</li>
+<li>sharding-sphere</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
 </ol>
 <hr>
-<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是一组操作的集合，是不可分割的工作单位，事务会把所有操作作为一个整体一起向系统提交或撤销操作请求。要么同时成功，要么同时失败</p>
-<h4 id="事务特性（ACID）"><a href="#事务特性（ACID）" class="headerlink" title="事务特性（ACID）"></a>事务特性（ACID）</h4><ol>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是一组操作的集合，是<strong>不可分割的工作单位</strong>，事务会把所有操作作为一个整体一起向系统提交或撤销操作请求。要么同时成功，要么同时失败</p>
+<h4 id="事务特性（ACID）"><a href="#事务特性（ACID）" class="headerlink" title="事务特性（ACID）"></a>事务特性（ACID）</h4><p>​    以转账为案例理解</p>
+<ol>
 <li>原子性（<strong>A</strong>tomicity）:事务是不可分割的最小操作单元。通过<strong>undo log</strong>（回滚日志） 来保证的</li>
 <li>一致性（<strong>C</strong>onsistency）：事务完成后数据保持一致状态。通过<strong>持久性+原子性+隔离性</strong>来保证</li>
 <li>隔离性（<strong>I</strong>solation）：事务在不受外部并发操作的影响下独立运行。通过 <strong>MVCC（多版本并发控制） 或锁机</strong>制来保证的</li>
 <li>持久性（<strong>D</strong>urability）：持久化。事务一旦完成或者回滚，对数据库的数据的改变是永久的。通过<strong>redo log</strong>（重做日志）来保证的</li>
 </ol>
-<h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><p>并发事务问题严重性： 脏读&gt;不可重复读&gt;幻读</p>
+<h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><p>并发事务问题严重性： <strong>脏读</strong>(一个事务读取到了另外一个食物还没提交的数据)<strong>&gt;不可重复读</strong>(一个事务先后读取同一条数据的结果不同)<strong>&gt;幻读</strong>(一个事务按照条件查询数据时，没有对应数据，但是在插入数据时，这条数据又出现了，就好像“幻影”)</p>
 <ol>
 <li>读未提交：解决不了问题</li>
 <li>读已提交：可解决脏读</li>
 <li>可重复读：虽然未彻底解决幻读（&#x3D;&#x3D;Innodb默认隔离级别&#x3D;&#x3D;），但很大程度上避免了幻读<ul>
-<li><strong>快照读</strong>（普通select查询）：由 MVCC（多版本并发控制）实现。<ul>
+<li><strong>快照读</strong>（普通select查询）：由 &#x3D;&#x3D;<strong>MVCC（多版本并发控制）</strong>&#x3D;&#x3D;实现。<ul>
 <li>实现的方式是开始事务后（执行 begin 语句后），在执行第一个查询语句后，会创建一个 Read View</li>
 <li>后续的查询语句利用这个 Read View，通过这个 Read View 就可以在 undo log 版本链找到事务开始时的数据</li>
 <li>所以事务过程中每次查询的数据都一样</li>
@@ -361,24 +414,90 @@
 <li><strong>隔离水平由1-4逐渐增加，数据越安全，但性能也越差</strong></li>
 </ol>
 <h4 id="MVCC（多版本并发控制）"><a href="#MVCC（多版本并发控制）" class="headerlink" title="MVCC（多版本并发控制）"></a>MVCC（多版本并发控制）</h4><p>维护一个数据的多个版本，使得读写操作没有冲突</p>
+<p>如何实现？以下<strong>1-4点</strong></p>
 <ol>
-<li>实现原理<ol>
-<li>隐藏字段<ul>
+<li><p><strong>隐藏字段</strong></p>
+<ul>
 <li>DB_TRX_ID：最近修改事务id</li>
-<li>DB_ROLL_PIR：回滚指针，指向<strong>这条记录</strong>的上一个版本，配合undo log</li>
+<li>DB_ROLL_PIR：回滚指针，指向undo log中<strong>这条记录</strong>的最新版本(已提交的修改操作)，undo log中最新的数据记录会指向上一个版本的记录（如果有）</li>
 <li>DB_ROW_ID：隐藏主键，若表没有主键，将会生成该隐藏字段</li>
 </ul>
 </li>
-<li>undo log<ul>
+<li><p><strong>undo log</strong></p>
+<ul>
 <li>逻辑日志。更新操作时候会生成相反操作的命令</li>
 <li>insert时的undo log日志只在回滚时需要，在事务提交后会被立即删除</li>
-<li>update和delete时的undo log日志不仅在回滚时需要，MVCC版本访问也需要，所以不会被立即删除</li>
+<li>update和delete时的undo log日志不仅在回滚时需要，MVCC版本访问也需要，所以<strong>不会被立即删除</strong></li>
 </ul>
 </li>
-<li>undo log版本链<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3></li>
+<li><p><strong>undo log版本链</strong></p>
+<ol>
+<li>undo log中最新的数据记录会指向上一个版本的记录（如果有），进而形成一个版本链表。链表头部是最新的旧版本，尾部是最早的旧版本</li>
 </ol>
 </li>
-<li>redo log与undo log区别？</li>
+<li><p><strong>readview（读视图）</strong></p>
+<ol>
+<li><p>readview：是<strong>快照读</strong>sql执行时MVCC提取数据的依据，记录并维护系统当前活跃的事务（未提交的）id</p>
+</li>
+<li><p>主要字段：</p>
+<ul>
+<li><p>m_id : 在创建readview时,当前数据库的活跃事务的id集合[活跃事务: 启动了 但还没有提交事务]</p>
+</li>
+<li><p>min_trx_id: 活跃事务中最小的事务id</p>
+</li>
+<li><p>max_trx_id: <strong>全局事务中最大的事务id+1</strong></p>
+</li>
+<li><p>creator_trx_id:创建该readview的事务id</p>
+</li>
+<li><p>拓展：innoDB存储引擎的&#x3D;&#x3D;数据表中&#x3D;&#x3D;的&#x3D;&#x3D;聚簇索引&#x3D;&#x3D;有两个隐藏字段</p>
+<ul>
+<li><p>&#x3D;&#x3D;trx_id&#x3D;&#x3D;: 当一个事务对某条聚簇索引进行改动时，就会<strong>把该事务的id记录到trx_id中</strong></p>
+</li>
+<li><p>roll_pointer: 每次对某条聚簇索引进行改动时，都会把旧版本的记录写入undo日志，然后<strong>这个隐藏列是个指针，指向每一个旧版本记录</strong>，可以找到修改前的记录</p>
+</li>
+<li><p>从数据库表中记录的<strong>最新版本</strong>【<strong>即数据库表隐藏字段trx_id的当前值，如果不可访问则推向前一个版本</strong>】开始判断能访问到undo log的哪个版本的数据</p>
+</li>
+<li><p>一个事务去访问记录时，版本访问规则：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">trx_id == creator_trx_id  可以访问该版本 ==&gt;说明这个版本就是当前事务自己更新记录</span><br><span class="line">trx_id &lt; min_trx_id 可以访问该版本  ==&gt;说明这个版本是在创建Readview之前已提交的事务生成的</span><br><span class="line">trx_id &gt; max_trx_id 不可以访问该版本 ==&gt;说明这个版本是在创建readview之后才开启的事务生成的</span><br><span class="line"></span><br><span class="line">min_trx_id &lt;= trx_id &lt;= min_trx_id</span><br><span class="line">  trx_id在m_id中:不可以访问该版本 ==&gt;说明该版本记录的活跃事务仍活跃</span><br><span class="line">  trx_id不在m_id中:可以访问该版本 ==&gt;说明该版本记录的活跃事务已经被提交</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>当前读</p>
+<ul>
+<li>共享锁、排它锁操作就是当前读</li>
+<li>读取是当前记录的<strong>最新版本</strong></li>
+<li>通过next-key lock(记录锁+间隙锁)解决了幻读</li>
+</ul>
+</li>
+<li><p>快照读</p>
+<ul>
+<li>普通的select就是快照读</li>
+<li><strong>通过MVCC解决了幻读</strong></li>
+<li><strong>读提交：每次select都会生成一个readview</strong></li>
+<li><strong>可重复读：每次事务启动时生成一个readview，然后整个事务都用这个readview</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><ol>
+<li>redo log与undo log区别？<ol>
+<li>redo log <ol>
+<li>是物理日志，记录的是数据的物理变化。</li>
+<li>事务<strong>完成后</strong>的数据状态。commit时由于服务宕机而失败时用来同步数据</li>
+<li>保证数据的<strong>持久性</strong></li>
+</ol>
+</li>
+<li>undo log<ol>
+<li>逻辑日志，事务回滚时，<strong>通过逆操作</strong>恢复数据</li>
+<li>事务<strong>开始前</strong>的数据状态</li>
+<li>保证数据的<strong>原子性和一致性</strong></li>
+</ol>
+</li>
+<li>拓：事务的隔离性是如何实现的？MVCC？参考上述part</li>
+</ol>
+</li>
 <li>为什么需要buffer pool？与redo log怎么配合使用？</li>
 <li>为什么需要redo log？</li>
 <li>为什么需要undo log？<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3></li>
@@ -664,7 +783,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,11 +799,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Activiti7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Spring cloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Activiti7</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
             
             <div class="clearfix"></div>
