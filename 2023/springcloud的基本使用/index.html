@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/images/feign%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B.png">
 <meta property="og:image" content="http://example.com/images/%E6%8A%BD%E5%87%BAfeign%E5%90%8E%E6%B6%88%E8%B4%B9%E8%80%85%E6%89%AB%E6%8F%8F%E4%B8%8D%E5%88%B0%E9%9C%80%E8%A6%81%E7%9A%84%E5%8C%85.png">
 <meta property="article:published_time" content="2023-08-06T00:49:12.000Z">
-<meta property="article:modified_time" content="2023-09-18T08:30:03.762Z">
+<meta property="article:modified_time" content="2024-05-02T05:19:58.242Z">
 <meta property="article:author" content="Unicornis">
 <meta property="article:tag" content="Spring cloud">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
 </tbody></table>
 <h3 id="RestTemplate"><a href="#RestTemplate" class="headerlink" title="RestTemplate"></a>RestTemplate</h3><ul>
 <li>配置使用步骤（消费者微服务）：<ol>
-<li>注册：在启动文件中配置RestTemplate方法 使用@Bean注册为bean <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public RestTemplate restTemplate()&#123;</span><br><span class="line">    return new RestTemplate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>注册：在启动文件中配置RestTemplate方法，使用@Bean注册为bean <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public RestTemplate restTemplate()&#123;</span><br><span class="line">    return new RestTemplate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>@Autowired依赖注入controller <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private RestTemplate restTemplate;</span><br></pre></td></tr></table></figure></li>
 <li>调用get&#x2F;post相关方法获取http返回值 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = &quot;http://userservice/user/&quot;+order.getUserId();</span><br><span class="line">User user = restTemplate.getForObject(url, User.class);   //将结果自动封装为user类</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
@@ -785,15 +785,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
